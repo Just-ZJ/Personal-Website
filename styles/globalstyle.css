@@ -1,0 +1,245 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*Start of Global Formats*/
+*{
+	margin: 0;
+	padding: 0;
+}
+html, body{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+/*End of Global Formats*/
+
+/*Start of page formatting*/
+.main-container{
+	height: 400%; /* 100*No. f Pages */
+}
+.page{
+	height: 25%; /* 100/No. of Pages */
+	width: inherit;
+	position: relative;
+	margin: 0;
+	background-color: #c2bdbd; /*cover blank spots of bg picture*/
+	overflow: hidden; /*removes white background on page*/
+}
+#firstPage{
+	height: 25%;
+	width: inherit;
+	background-color: #1F1F1F;
+	background-image: url(../images/scenery-bg.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+}
+#secondPage{
+	background-image: url(../images/about-bg-3.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+}
+#thirdPage{
+	background-color:#D30306;
+}
+#lastPage{
+	background-color: #6F6A6A;
+}
+/*End of page formatting*/
+
+
+
+
+
+/*Start of fixed position formats
+header{
+	height: 50px;
+	width: 100%;
+	background-color: #968C8C;
+	/*Makes it always stay at top of page
+	position: fixed;
+	top: 0;
+}
+header ul{
+	height: inherit;
+	width: 96%;
+	position: inherit;
+	list-style: none; /*removes bullet points
+	margin-right: 2%;
+	margin-left: 2%;
+}
+header li{
+	padding: 0 15px; /*adds some space between words
+	display: inline-block;
+	box-sizing: border-box;
+	/*Align text centered vertically
+	line-height: 50px; /*same height as header
+	vertical-align: middle;
+}
+#siteHeading{
+	height: inherit;
+	display: inline-block;
+	left: 0;
+}
+.navBar{
+	height: inherit;
+	/*prevents navbar from going to next line when window minimised
+	right: 0;
+	top: 0;
+	display: inline-block;
+	position: absolute;
+	
+}
+#cv-DL{
+	background-color: blue;
+}
+.navBar a{
+	text-decoration: none;
+	color: black;
+}
+.navBar a:hover{
+	color: antiquewhite;
+}
+
+/*End of fixed position formats*/
+
+
+
+
+
+
+
+
+
+/*Start of fixed position formats*/
+#siteHeading{
+	height: 50px;
+	width: 100%;
+	display: inline-block;
+	left: 0;
+	background-color: #968C8C;
+	top: 0;
+}
+.navBar{
+	height: 50px;
+	width: 100%;
+	/*prevents navbar from going to next line when window minimised*/
+	right: 0;
+	display: inline-block;
+	position: sticky;
+	top: 0;
+	background-color: #968C8C;
+	z-index: 1;
+}
+.navBar ul{
+	height: inherit;
+	position: inherit;
+	list-style: none; /*removes bullet points*/
+}
+.navBar li{
+	padding: 0 15px; /*adds some space between words*/
+	display: inline-block;
+	box-sizing: border-box;
+	/*Align text centered vertically*/
+	line-height: 50px; /*same height as header*/
+	vertical-align: middle;
+}
+
+.navBar a{
+	text-decoration: none;
+	color: black;
+}
+.navBar a:hover{
+	color: antiquewhite;
+}
+
+/*End of fixed position formats*/
+
+
+
+/*Start of Page 1*/
+#contact-pic{
+	margin-top: 5%;
+	/*centers the image*/
+	width: inherit;	
+	text-align: center; 
+}
+.social-media-logo{
+	margin: 10px auto 0 auto;
+	height: 100px;
+	width: 50%;
+	background-color: black;
+}
+
+.linked-in-logo{
+	background-image: url(../images/LinkedIn-Logo.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 50px;
+	width: 50px;
+	float: left;
+}
+#handshake-logo{
+	background-image: url(../images/handshake-Logo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin: 10px 0 0 0;
+	height: 50px;
+	width: 50px;
+	float: left;
+}
+.contact-info{
+	
+}
+/*End of Page 1*/
+
+
+
+/*Start of Page 2*/
+#firstPage h2{
+	padding-left: 15%;
+	padding-top: 10%
+}
+.main-content{
+	width: 40%;
+	margin-left: 50%;
+}
+/*End of Page 2*/
+
+
+/*Start of Page 3*/
+/*End of Page 3*/
+
+
+/*Start of Page 4*/
+/*End of Page 4*/
+
+
+/*Start of footer*/
+footer{
+	width: 100%;
+	height: 60px;
+	background-color: black;
+	color: white;
+	/*Makes footer stay at bottom of last page*/
+	position: absolute;
+	bottom: 0;
+}
+footer ul{
+	height: inherit;
+	width: 100%;
+	list-style: none;
+}
+footer li{
+	height: inherit;
+	display: inline-block;
+	line-height: 60px; /*same as footer height*/
+	vertical-align: middle; 
+}
+
+/*End of footer*/
+
+
