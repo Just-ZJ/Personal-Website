@@ -4,107 +4,127 @@
 <meta charset="utf-8">
 <title>Untitled Document</title>
 <!--links css file-->
-<link rel="stylesheet" type="text/css" href="styles/globalstyle.css">
+	<link rel="stylesheet" type="text/css" href="styles/globalstyle.css">
 </head>
 
 <body>
-	
-	<!--Start of Main Container-->
-	<div class="main-container">
-	
 
-			<div id="siteHeading">
-				<h1>Zheng Ji's Portfolio</h1>
-			</div>
-			<div class="navBar">
-				<ul>
-					<li><a href="#firstPage"><h2>Contact</h2></a></li>
-					<li><a href="#secondPage"><h2>About</h2></a></li>
-					<li><a href=""><h2>Personal Projects</h2></a></li>
-					<li id="cv-DL"><a href="OSU Resume.pdf" download><h2>Resume Download</h2></a></li>
-				</ul>
-			</div>
-
-		
-			<!--First Page: Contact Card-->
-		<div class="page" id="firstPage">
-			<div id="contact-pic">
-				<img src="images/resume-pic.png" alt="Profile Pic" height="200" width="200">
-				<h1>Zheng Ji Tan</h1>
-				<h3>
-					1<sup>st</sup> Year Student 
-					<br>Bachelors of Science in Computer Science &amp; Engineering 
-					<br> Ohio State University, Columbus, Ohio
-				</h3>
-			</div>
-			
-			<div class="social-media-logo">
-				<a href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/" target="_blank"><div class="linked-in-logo"></div></a>
-			</div>
-			<div class="contact-info">
-				
-			</div>
-			
-			
-			
-		</div>
-		
-		
-		<!--Second Page: About/Intro of Myself-->
-		<div class="page" id="secondPage">
-			<h2>About Me</h2>
-			<div class="main-content">
-				<p>I have experience in using Java, HTML, CSS & Javascript </p>
-				
-			</div>
-			
-
-		</div>
-
-		
-		<!--Third Page: Job Experiences-->
-		<div class="page" id="thirdPage">
-			<!--do a slide show here?-->
-			<div class="job-exp">
-				<h2>Job Experiences</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-		</div>
-
-		<!--Last Page: Personal Projects-->
-		<div class="page" id="lastPage">
-			<!--do a slide show here?-->
-			<h2>Personal Projects</h2>
-			<footer>
-				<ul>
-					<li><p>&copy;Zheng Ji Tan, 2019</p></li>
-					<li><a href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/" target="_blank"><img src="images/LinkedIn-Logo.png" height="50" width="50"></a></li>
-				</ul>
-			</footer>
-		</div>
-
-	
-	
-
-		
-		
-		
-		
-		
-		<!--put after the pages to ensure that it is always shown
 		<header>
-			
 				<ul>
 					<li id="siteHeading"><h1>Zheng Ji's Portfolio</h1></li>
 					<div class="navBar">
 						<li><a href="#firstPage"><h2>Contact</h2></a></li>
 						<li><a href="#secondPage"><h2>About</h2></a></li>
-						<li><a href=""><h2>Personal Projects</h2></a></li>
+						<li><a href="#lastPage"><h2>Personal Projects</h2></a></li>
 						<li id="cv-DL"><a href="OSU Resume.pdf" download><h2>Resume Download</h2></a></li>
 					</div>
 				</ul>
 		</header>
-		-->
+		
+	<!--Start of Main Container-->
+	<div class="main-container">
+		
+			<!--First Page: Contact Card-->
+		<div class="page" id="firstPage">
+			<main>
+				<div id="contact-pic">
+					<img src="images/resume-pic.png" alt="Profile Pic" height="200" width="200">
+				</div>
+				
+				<div id="profile-description">
+					<h1>Zheng Ji Tan</h1>
+					<h3>
+						1<sup>st</sup> Year Student 
+						<br>Bachelors of Science in Computer Science &amp; Engineering 
+						<br> Ohio State University, Columbus, Ohio
+					</h3>
+				</div>
+					
+				<div class="social-media-container">
+					<span class="social-media-logo">
+						<a href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/" target="_blank">
+							<img src="images/LinkedIn-Logo.png" height="50" width="50">
+						</a>
+					</span>
+					
+					<span class="social-media-logo">
+						<a href="https://github.com/dunlike2big/zj-tan.git" target="_blank">
+							<img src="images/github-logo.png" height="50" width="50">
+						</a>
+					</span>
+					
+					<span class="social-media-logo">
+						<a href="https://www.facebook.com/zjtan1997" target="_blank">
+							<img src="images/fb-Logo.png" height="50" width="50">
+						</a>
+					</span>
+				</div>
+					
+
+				<div class="contact-info">
+					<h3>Email: tan.955@osu.edu</h3> 
+				</div>
+			</main>
+		</div>
+		
+		
+		<!--Second Page: About/Intro of Myself-->
+		<div class="page" id="secondPage">
+			<main>	
+					
+				<div class="about-me-description">
+					<h2>About Me</h2>
+				</div>
+
+				<table id="skills-description-container">
+					<tr>
+						<th><h2>Skills</h2></th>
+					</tr>
+					<tr>
+						<td class="skills-description"><h3>Java</h3></td>
+						<td class="num-stars"></td>
+					</tr>
+					<tr>
+						<td class="skills-description"><h3>HTML</h3></td>
+						<td class="num-stars"></td>
+					</tr>
+					<tr>
+						<td class="skills-description"><h3>CSS</h3></td>
+						<td class="num-stars"></td>
+					</tr>
+					<tr>
+						<td class="skills-description"><h3>Javascript</h3></td>
+						<td class="num-stars"></td>
+					</tr>
+				</table>
+				
+				<div>
+					<h2>Job Experiences</h2>
+				</div>
+			</main>
+		</div>
+
+
+		<!--Last Page: Personal Projects-->
+		<div class="page" id="lastPage">
+			<main>
+				<!--do a slide show here?-->
+				<h2>Personal Projects</h2>
+				<footer>
+					<ul>
+						<li><p>&copy;Zheng Ji Tan, 2019</p></li>
+						<li><a href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/" target="_blank"><img src="images/LinkedIn-Logo.png" height="50" width="50"></a></li>
+					</ul>
+				</footer>
+			</main>
+		</div>
+
+	
+	
+
+		
+
+		
 
 	</div>
 	<!--End of Main Container-->
