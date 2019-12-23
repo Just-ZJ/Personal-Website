@@ -5,54 +5,57 @@
 *{
 	margin: 0;
 	box-sizing: border-box;
-}
-h1{
-	font-size: 2.5rem;
-}
-h2{
-	font-size: 1.75rem;
-}
-h3{
-	font-size: 1.25rem;
+	text-decoration: none;
 }
 html, body{
 	margin: 0;
 	padding: 0;
 	position: relative;
-	height: 100%;
+	height: 300vh;
 	width: 100%;
+}
+.center{
+	margin: auto;
+	text-align: center;
 }
 /*End of Global Formats*/
 
+
 /*Start of page formatting*/
-.main-container{
-	height: 300%; /* 100*No. f Pages */
-}
 .page{
-	height: 33.33%; /* 100/No. of Pages */
-	width: inherit;
+	height: 100vh; /*100vh = 100% of viewport height*/
+	width: 100%;
 	position: relative;
 	margin: 0;
-	background-color: #c2bdbd; /*cover blank spots of bg picture*/
-	overflow: hidden; /*removes white background on page*/
+	overflow: hidden;
 }
-.page main{
-	margin-top: 70px; /*height of nav bar + 20px*/
+main{
+	margin-top: 50px; /*height of header*/
+	height: 100%;
+	width: inherit;
+	position: absolute;
+	z-index: 1;
 }
 #firstPage{
-	height: 33.33%;
-	width: inherit;	
+	background-color: grey;
+	color: black;
+}
+/*pseudo element*/
+#firstPage::after{
+	top: 0;
+	height: 100vh;
+	/*needed to make ::after work work*/
+	content: ''; /*empty content*/
+	display: block;
+	/*Background Image styles*/
 	background-image: url(../images/scenery-bg.png);
 	background-size: cover;
 	background-repeat: no-repeat;
-	position: relative;
-	color: black;
+	opacity: 0.7;
+	filter: blur(10px);
 }
 #secondPage{
-	background-image: url(../images/about-bg-3.png);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: contain;
+	background-color: #333;
 }
 #lastPage{
 	background-color: #6F6A6A;
@@ -60,28 +63,25 @@ html, body{
 /*End of page formatting*/
 
 
-/*Start of fixed position formats*/
+/*Start of header*/
 header{
 	height: 50px;
-	width: 100%;
+	width: inherit;
 	background-color: #968C8C;
 	/*Makes it always stay at top of page*/
 	position: fixed;
 	top: 0;
-	z-index: 1;
+	z-index: 2;
+	
 }
 header ul{
 	height: inherit;
-	width: 96%;
-	position: inherit;
+	width: inherit;
 	list-style: none; /*removes bullet points*/
-	margin-right: 2%;
-	margin-left: 2%;
 }
 header li{
-	padding: 0 15px; /*adds some space between words*/
+	padding: 0 15px 0 0; /*adds some space between words*/
 	display: inline-block;
-
 	/*Align text centered vertically*/
 	line-height: 50px; /*same height as header*/
 	vertical-align: middle;
@@ -95,37 +95,40 @@ header li{
 	height: inherit;
 	/*prevents navbar from going to next line when window minimised*/
 	right: 0;
-	top: 0;
 	display: inline-block;
 	position: absolute;
-	
+	margin-right: 30px;
 }
 .navBar a{
-	text-decoration: none;
 	color: black;
 }
 .navBar a:hover{
-	color: antiquewhite;
+	color: whitesmoke;
 }
 
-/*End of fixed position formats*/
+/*End of header*/
 
 
 /*Start of Page 1*/
-#contact-pic, #profile-description{
-	/*centers the image & text*/
-	width: inherit;	
-	text-align: center; 
+#firstPage h1{
+	font-size: 2.75rem;
+	font-weight: 1000;
+	padding-bottom: 10px;
 }
-#profile-description{
-	margin-top: 10px;
-	line-height: 2.25rem;
+#firstPage h3{
+	font-size: 1.25rem;
+}
+.contact-pic{
+	padding-top: 40px;
+}
+.profile-description{
+	padding-top: 10px;
+	line-height: 2.3rem;
 }
 .social-media-container{
-	margin: 2rem auto 0 auto;
+	margin: 1rem auto 0 auto;
 	height: 50px;
 	width:	50%;
-	text-align: center;
 }
 .social-media-container a{
 	text-decoration: none;
@@ -136,20 +139,48 @@ header li{
 .contact-info{
 	margin: 2rem auto;
 	width: inherit;
-	text-align: center;
-	background-color: grey;
-	line-height: 0.75rem;
 }
 /*End of Page 1*/
 
 
 
 /*Start of Page 2*/
-#firstPage h2{
-	padding-left: 15%;
-	padding-top: 10%
+.about-me-description{
+	width: 50%;
+	height: 40%;
+	background-color: white;
+	float: left;
 }
-
+.skills-description-container{
+	width: 50%;
+	height: 40%;
+	background-color: greenyellow;
+	float: right;
+}
+.grid-container{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+.header{
+	grid-column: 1/5;
+}
+.grid-col1-container{
+	grid-column: 1/3;
+}
+.grid-col2-container{
+	grid-column: 3/5;
+}
+.lang-Descript, .prog-Descript{
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-gap: 0.5em;
+}
+.job-exp{
+	width: 100%;
+	height: 60%;
+	background-color: blue;
+	float: left;
+}
 /*End of Page 2*/
 
 
@@ -164,22 +195,98 @@ footer{
 	height: 60px;
 	background-color: black;
 	color: white;
+	overflow: hidden;
 	/*Makes footer stay at bottom of last page*/
 	position: absolute;
 	bottom: 0;
+	z-index: 1;
 }
-footer ul{
-	height: inherit;
-	width: 100%;
-	list-style: none;
-}
-footer li{
-	height: inherit;
+.copy-right{
 	display: inline-block;
+	width: 50%;
 	line-height: 60px; /*same as footer height*/
-	vertical-align: middle; 
+	vertical-align: middle;
+	position: inherit;
+	left: 0;
 }
-
+.social-media-logo-container{
+	position: inherit;
+	margin: 10px 0;
+	right: 0;
+	width: 250px;
+	text-align: center;
+}
 /*End of footer*/
 
+
+
+
+.slideshow-container{
+	height: 45vh;
+	position: relative;
+	width: 75%;
+	margin: auto;
+	background-color: black;	
+	border-radius: 15px;
+	text-align: center;
+}
+/*Start of grid layouts*/
+.grid-job-exp-slide-container{
+	height: inherit;
+	position: relative;
+	margin: auto;
+	background-color: pink;
+	/*grid layouts*/
+	display: inline-grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 0.5em;
+}
+.job-exp-slide{
+	height: 100%;
+	display: none; 
+	background-color: silver;
+}
+.slide1, .slide2{
+	display: block;
+}
+/*End of grid layouts*/
+
+.job-descript{
+	padding: 0 50px;
+}
+.company-description{
+	padding: 50px;
+	background-color: peru;
+}
+
+
+
+
+
+
+
+/*start of previous and next buttons*/
+.prev, .next{
+	position: absolute;
+	line-height: 45vh;
+	vertical-align: middle;
+	padding: 0 20px;
+	cursor: pointer; /*changes cursor shape*/
+}
+
+.prev{
+	grid-column:1/2;
+	left: 0;
+	/*same border-radius as .slideshow-container*/
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+.next{
+	grid-column:2/3;
+	right: 0;
+	/*same border-radius as .slideshow-container*/
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+/*end of previous and next buttons*/
 
