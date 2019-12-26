@@ -5,7 +5,7 @@
 *{
 	margin: 0;
 	box-sizing: border-box;
-	text-decoration: none;
+	text-decoration: none; /*removes underline in <a> tag*/
 }
 html, body{
 	margin: 0;
@@ -17,6 +17,24 @@ html, body{
 .center{
 	margin: auto;
 	text-align: center;
+}
+h1, h2, h3{
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+}
+h4, p{
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+}
+h1{
+	font-weight: 1000;
+}
+h2{
+	
+}
+h3{
+	padding: 10px 0;
+}
+h4{
+	
 }
 /*End of Global Formats*/
 
@@ -37,8 +55,8 @@ main{
 	z-index: 1;
 }
 #firstPage{
-	background-color: grey;
-	color: black;
+	background-color: #333;
+	color: antiquewhite;
 }
 /*pseudo element*/
 #firstPage::after{
@@ -51,14 +69,34 @@ main{
 	background-image: url(../images/scenery-bg.png);
 	background-size: cover;
 	background-repeat: no-repeat;
-	opacity: 0.7;
+	opacity: 0.6;
 	filter: blur(10px);
 }
 #secondPage{
-	background-color: #333;
+	background-color: #514F4F;
+	color: antiquewhite;
+}
+#secondPage::after{
+	top: 0;
+	height: 100vh;
+	content: '';
+	display: block;
+	opacity: 0.2;
+	background-color: antiquewhite;
+	filter: blur(10px);
 }
 #lastPage{
-	background-color: #6F6A6A;
+	background-color: #333;
+	color: antiquewhite;
+}
+#lastPage::after{
+	top: 0;
+	height: 100vh;
+	content: '';
+	display: block;
+	opacity: 0.3;
+	background-color: black;
+	filter: blur(10px);
 }
 /*End of page formatting*/
 
@@ -72,7 +110,6 @@ header{
 	position: fixed;
 	top: 0;
 	z-index: 2;
-	
 }
 header ul{
 	height: inherit;
@@ -108,87 +145,6 @@ header li{
 
 /*End of header*/
 
-
-/*Start of Page 1*/
-#firstPage h1{
-	font-size: 2.75rem;
-	font-weight: 1000;
-	padding-bottom: 10px;
-}
-#firstPage h3{
-	font-size: 1.25rem;
-}
-.contact-pic{
-	padding-top: 40px;
-}
-.profile-description{
-	padding-top: 10px;
-	line-height: 2.3rem;
-}
-.social-media-container{
-	margin: 1rem auto 0 auto;
-	height: 50px;
-	width:	50%;
-}
-.social-media-container a{
-	text-decoration: none;
-}
-.social-media-logo{
-	margin: auto 15px;
-}
-.contact-info{
-	margin: 2rem auto;
-	width: inherit;
-}
-/*End of Page 1*/
-
-
-
-/*Start of Page 2*/
-.about-me-description{
-	width: 50%;
-	height: 40%;
-	background-color: white;
-	float: left;
-}
-.skills-description-container{
-	width: 50%;
-	height: 40%;
-	background-color: greenyellow;
-	float: right;
-}
-.grid-container{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-}
-.header{
-	grid-column: 1/5;
-}
-.grid-col1-container{
-	grid-column: 1/3;
-}
-.grid-col2-container{
-	grid-column: 3/5;
-}
-.lang-Descript, .prog-Descript{
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-gap: 0.5em;
-}
-.job-exp{
-	width: 100%;
-	height: 60%;
-	background-color: blue;
-	float: left;
-}
-/*End of Page 2*/
-
-
-
-/*Start of Last Page*/
-/*End of Last Page/
-
-
 /*Start of footer*/
 footer{
 	width: 100%;
@@ -208,6 +164,7 @@ footer{
 	vertical-align: middle;
 	position: inherit;
 	left: 0;
+	padding-left: 30px;
 }
 .social-media-logo-container{
 	position: inherit;
@@ -218,75 +175,4 @@ footer{
 }
 /*End of footer*/
 
-
-
-
-.slideshow-container{
-	height: 45vh;
-	position: relative;
-	width: 75%;
-	margin: auto;
-	background-color: black;	
-	border-radius: 15px;
-	text-align: center;
-}
-/*Start of grid layouts*/
-.grid-job-exp-slide-container{
-	height: inherit;
-	position: relative;
-	margin: auto;
-	background-color: pink;
-	/*grid layouts*/
-	display: inline-grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-column-gap: 0.5em;
-}
-.job-exp-slide{
-	height: 100%;
-	display: none; 
-	background-color: silver;
-}
-.slide1, .slide2{
-	display: block;
-}
-/*End of grid layouts*/
-
-.job-descript{
-	padding: 0 50px;
-}
-.company-description{
-	padding: 50px;
-	background-color: peru;
-}
-
-
-
-
-
-
-
-/*start of previous and next buttons*/
-.prev, .next{
-	position: absolute;
-	line-height: 45vh;
-	vertical-align: middle;
-	padding: 0 20px;
-	cursor: pointer; /*changes cursor shape*/
-}
-
-.prev{
-	grid-column:1/2;
-	left: 0;
-	/*same border-radius as .slideshow-container*/
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
-}
-.next{
-	grid-column:2/3;
-	right: 0;
-	/*same border-radius as .slideshow-container*/
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-}
-/*end of previous and next buttons*/
 
