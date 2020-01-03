@@ -9,14 +9,18 @@
 	<link rel="stylesheet" type="text/css" href="styles/firstPagestyles.css" />
 	<link rel="stylesheet" type="text/css" href="styles/secondPagestyles.css" />
 	<link rel="stylesheet" type="text/css" href="styles/lastPagestyles.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script> <!--for chart.js-->
 </head>
 
 <body>
 	<header>
 		<ul>
-			<li id="siteHeading">
-				<h1>Zheng Ji's Portfolio-think of a good name</h1>
-			</li>
+			<div class="siteHeading">
+				<li>
+					<h1>Just ExtraOrdinary</h1>
+				</li>
+			</div>
+			
 			<div class="navBar">
 				<li>
 					<a href="#firstPage">
@@ -25,7 +29,7 @@
 				</li>
 				<li>
 					<a href="#secondPage">
-						<h2>About</h2>
+						<h2>Experiences</h2>
 					</a>
 				</li>
 				<li>
@@ -42,64 +46,89 @@
 		</ul>
 	</header>
 
-	<!--First Page: Contact-->
+	<!--First Page: Contact/About-->
 	<section class="page" id="firstPage">
 		<main>
-			<div class="contact-pic center">
+			<div class="left-container1">
+				<div class="contact-pic center">
 				<img src="images/resume-pic.png" alt="Profile Pic" height="200" width="200" />
+				</div>
+
+				<div class="profile-description center">
+					<h1>Zheng Ji <span class="highlight">Tan</span></h1>
+					<h3>
+						1<sup>st</sup> Year Student <br />
+						Bachelors of Science in Computer Science &amp; Engineering <br />
+						Ohio State University, Columbus, Ohio
+					</h3>
+				</div>
+
+				<div class="social-media-container center">
+					<span class="social-media-logo">
+						<a href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/" target="_blank">
+							<img src="images/LinkedIn-Logo-black.png" alt="Linkedin" height="50" width="50" />
+						</a>
+					</span>
+
+					<span class="social-media-logo">
+						<a href="https://github.com/dunlike2big/zj-tan.git" target="_blank">
+							<img src="images/github-logo-black.png" alt="Github" height="50" width="50" />
+						</a>
+					</span>
+				</div>
+
+				<div class="contact-info center">
+					<h3>
+						<a href="mailto:tanzhengji@yahoo.com" target="_top">Email: tanzhengji@yahoo.com</a>
+					</h3>
+				</div>
 			</div>
-
-			<div class="profile-description center">
-				<h1>Zheng Ji Tan</h1>
-				<h3>
-					1<sup>st</sup> Year Student <br />
-					Bachelors of Science in Computer Science &amp; Engineering <br />
-					Ohio State University, Columbus, Ohio
-				</h3>
-			</div>
-
-			<div class="social-media-container center">
-				<span class="social-media-logo">
-					<a href="https://www.facebook.com/zjtan1997" target="_blank">
-						<img src="images/fb-Logo-black.png" alt="Facebook" height="50" width="50" />
-					</a>
-				</span>
-				<span class="social-media-logo">
-					<a href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/" target="_blank">
-						<img src="images/LinkedIn-Logo-black.png" alt="Linkedin" height="50" width="50" />
-					</a>
-				</span>
-
-				<span class="social-media-logo">
-					<a href="https://github.com/dunlike2big/zj-tan.git" target="_blank">
-						<img src="images/github-logo-black.png" alt="Github" height="50" width="50" />
-					</a>
-				</span>
-			</div>
-
-			<div class="contact-info center">
-				<h3>
-					<a href="mailto:tan.955@osu.edu" target="_top">Email: tan.955@osu.edu</a>
-				</h3>
+			
+			<div class="right-container1">
+				<p> As of today, I have conquered the planet for 22 years.
+				<br>
+				As of today, I have an Associate Degree in Banking and Financial Services from Nanyang Polytechnic, Singapore.
+				<br>
+				As of today, I am ?% towards completing my Bachelor's.
+				<br>
+				As of today,
+				<br>
+				As of today,
+				<br>
+				As of today,
+				<br>
+				As of today,
+				<br>
+				
+				</p>
 			</div>
 		</main>
 	</section>
-
-	<!--Second Page: About/Intro of Myself-->
+	
+	
+	<!--Second Page: Skills/Experiences-->
 	<section class="page" id="secondPage">
-		<main>
-			<div class="about-me-description">
-				<h2 class="center">About Me</h2>
-				<p>I am </p>
-				
+		
+		<div class="left-container2">
+			<div class="sideNavBar">
+				<ul>
+					<a><li>Languages</li></a>
+					<a><li>Coding Languages</li></a>
+					<a><li>Programs</li></a>
+					<a><li>Job Experiences</li></a>
+				</ul>
 			</div>
-
+		</div>
+		
+		<main>
+		
+		
 			<div class="skills-description-container">
 				<div class="grid-container">
 					<div class="header center">
 						<h2>Skills</h2>
 					</div>
-					
+
 					<div class="text-bubble">
 						<div>
 							Novice:
@@ -146,53 +175,53 @@
 							<img src="images/star-black.png" height="15" width="15" />
 						</div>
 					</div>
-					
+
 					<div class="grid-col1-container">
-						<div class="center">
-							<h3>Languages</h3>
-						</div>
-						<div class="lang-Descript">
-							<div>
-								<h4>Java</h4>
+							<div class="center">
+								<h3>Languages</h3>
 							</div>
-							<div class="star-container">
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
+							<div class="lang-Descript">
+								<div class="nameOfLangProg">
+									<h4>Java</h4>
+								</div>
+								<div class="star-container">
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-blank.png" height="15" width="15" />
+									<img src="images/star-blank.png" height="15" width="15" />
+								</div>
+								<div class="nameOfLangProg">
+									<h4>HTML</h4>
+								</div>
+								<div class="star-container">
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-blank.png" height="15" width="15" />
+									<img src="images/star-blank.png" height="15" width="15" />
+								</div>
+								<div class="nameOfLangProg">
+									<h4>CSS</h4>
+								</div>
+								<div class="star-container">
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-blank.png" height="15" width="15" />
+									<img src="images/star-blank.png" height="15" width="15" />
+								</div>
+								<div class="nameOfLangProg">
+									<h4>Javascript</h4>
+								</div>
+								<div class="star-container">
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-black.png" height="15" width="15" />
+									<img src="images/star-blank.png" height="15" width="15" />
+									<img src="images/star-blank.png" height="15" width="15" />
+									<img src="images/star-blank.png" height="15" width="15" />
+								</div>
 							</div>
-							<div>
-								<h4>HTML</h4>
-							</div>
-							<div class="star-container">
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-							</div>
-							<div>
-								<h4>CSS</h4>
-							</div>
-							<div class="star-container">
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-							</div>
-							<div>
-								<h4>Javascript</h4>
-							</div>
-							<div class="star-container">
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-							</div>
-						</div>
 					</div>
 
 					<div class="grid-col2-container">
@@ -200,7 +229,7 @@
 							<h3>Programs</h3>
 						</div>
 						<div class="prog-Descript">
-							<div>
+							<div class="nameOfLangProg">
 								<h4>MS Word</h4>
 							</div>
 							<div class="star-container">
@@ -210,7 +239,7 @@
 								<img src="images/star-black.png" height="15" width="15" />
 								<img src="images/star-blank.png" height="15" width="15" />
 							</div>
-							<div>
+							<div class="nameOfLangProg">
 								<h4>MS Excel</h4>
 							</div>
 							<div class="star-container">
@@ -220,7 +249,7 @@
 								<img src="images/star-black.png" height="15" width="15" />
 								<img src="images/star-blank.png" height="15" width="15" />
 							</div>
-							<div>
+							<div class="nameOfLangProg">
 								<h4>MS Powerpoint</h4>
 							</div>
 							<div class="star-container">
@@ -230,7 +259,7 @@
 								<img src="images/star-black.png" height="15" width="15" />
 								<img src="images/star-blank.png" height="15" width="15" />
 							</div>
-							<div>
+							<div class="nameOfLangProg">
 								<h4>MS Access</h4>
 							</div>
 							<div class="star-container">
@@ -240,7 +269,7 @@
 								<img src="images/star-blank.png" height="15" width="15" />
 								<img src="images/star-blank.png" height="15" width="15" />
 							</div>
-							<div>
+							<div class="nameOfLangProg">
 								<h4>Photoshop</h4>
 							</div>
 							<div class="star-container">
@@ -254,7 +283,7 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div class="job-exp">
 				<h2 class="center">Job Experiences</h2>
 				<br />
@@ -264,7 +293,7 @@
 						<div class="job-exp-slide" id="slide1">
 							<div class="company-description center">
 								<img src="images/osu-logo.png" alt="OSU Logo" height="100" />
-								<h3>Graduate &amp; Professional Admissions, OSU</h3>
+								<h3>Graduate &amp; Professional Admissions Office</h3>
 								<h4>Admissions Assistant, Federal Work-Study</h4>
 								<h4 class="duration">October 2019 – Current</h4>
 							</div>
@@ -272,7 +301,7 @@
 								<ul>
 									<li>
 										<p>
-											Provide administrative support to the Graduate and
+											Provide support to the Graduate and
 											Professional Admissions Office
 										</p>
 									</li>
@@ -435,16 +464,28 @@
 					</div>
 				</div>
 			</div>
+			
 		</main>
 	</section>
-
+	
+	
 	<!--Last Page: Personal Projects-->
 	<section class="page" id="lastPage">
 		<main>
 			<!--do a slide show here?-->
 			<h2 class="lastPageTitle">Personal Projects</h2>
-			
-
+			<div class="radar-graph">
+				<div class="hide">
+					<canvas id="languages"></canvas>
+				</div>
+				<div class="hide">
+					<canvas id="progLangChart"></canvas>
+				</div>
+				<div class="hide">
+					<canvas id="programsExp"></canvas>
+				</div>
+				
+			</div>
 			
 			
 		</main>
@@ -452,15 +493,16 @@
 
 	<footer>
 		<span class="copy-right">
-			<p>&copy; Zheng Ji Tan, 2019</p>
+			<p>&copy; Zheng Ji Tan, 2019 <br>
+			Last updated: 1 Jan 2020</p>
+			<!--put email?
+			<h3>
+				<a href="mailto:tan.955@osu.edu" target="_top">Email: tan.955@osu.edu</a>
+			</h3>
+			-->
 		</span>
 
 		<div class="social-media-logo-container">
-			<span class="social-media-logo">
-				<a href="https://www.facebook.com/zjtan1997" target="_blank">
-					<img src="images/fb-Logo-white.png" alt="Facebook" height="40" width="40" />
-				</a>
-			</span>
 			<span class="social-media-logo">
 				<a href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/" target="_blank">
 					<img src="images/LinkedIn-Logo-white.png" alt="Linkedin" height="40" width="40" />
@@ -475,7 +517,9 @@
 		</div>
 	</footer>
 </body>
-
+	<script src="styles/side-nav-bar.js"></script>
+	<script src="styles/radar-chart.js"></script> 
+	<script src="styles/time-calculator.js"></script>
 	<script src="styles/job-exp-slideshow.js"></script>
 	<!--<script src="styles/stars-description.js"></script>-->
 </html>

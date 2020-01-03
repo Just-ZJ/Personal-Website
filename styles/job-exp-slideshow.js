@@ -1,13 +1,15 @@
 // JavaScript Document - always add js to end of body, not before
-let slides = document.getElementsByClassName("job-exp-slide");
+let slides = document.getElementsByClassName("job-exp-slide");  	
+//var dots = document.getElementsByClassName("dot");
 let currSlide = 1;
+autoSlide();
 
 function nextSlide(n){
 	currSlide += n;
-	showSlide(currSlide);
+	showSlide();
 }
 
-function showSlide(n){
+function showSlide(){
 	let slideNumLeft;
 	let slideNumRight;
 	let i;
@@ -16,9 +18,8 @@ function showSlide(n){
 		slides[i].style.display = "none";
 		document.getElementById("slide" + (i + 1)).style.borderRadius = "0px";
 	}
-	
 	/*checks for out of range*/
-	if(n >= 7){
+	if(currSlide >= 7){
 		currSlide = 1;
 		slides[0].style.display = "block";
 		document.getElementById("slide1").style.borderTopLeftRadius = "15px";
@@ -26,15 +27,23 @@ function showSlide(n){
 		slides[1].style.display = "block";
 		document.getElementById("slide2").style.borderTopRightRadius = "15px";
 		document.getElementById("slide2").style.borderBottomRightRadius = "15px";
-	}else if(n === 6){
+	}else if(currSlide === 6){
 		currSlide = 0;
 		slides[5].style.display = "block";
 		document.getElementById("slide6").style.borderTopLeftRadius = "15px";
-		document.getElementById("slide6").style.borderBottomLefttRadius = "15px";
+		document.getElementById("slide6").style.borderBottomLeftRadius = "15px";
 		slides[6].style.display = "block";
 		document.getElementById("slide7").style.borderTopRightRadius = "15px";
 		document.getElementById("slide7").style.borderBottomRightRadius = "15px";
-	}else if(n <= 0){
+	}else if(currSlide === -1){
+		currSlide = 5;
+		slides[4].style.display = "block";
+		document.getElementById("slide5").style.borderTopLeftRadius = "15px";
+		document.getElementById("slide5").style.borderBottomLeftRadius = "15px";
+		slides[5].style.display = "block";
+		document.getElementById("slide6").style.borderTopRightRadius = "15px";
+		document.getElementById("slide6").style.borderBottomRightRadius = "15px";
+	}else if(currSlide <= 0){
 		currSlide = 6;
 		slides[5].style.display = "block";
 		document.getElementById("slide6").style.borderTopLeftRadius = "15px";
@@ -57,7 +66,11 @@ function showSlide(n){
 }
 
 
-
+function autoSlide(){
+	currSlide++;
+	setTimeout(showSlide, 5000);
+	setTimeout(autoSlide, 5000);
+}
 
 
 

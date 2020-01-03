@@ -6,13 +6,15 @@
 	margin: 0;
 	box-sizing: border-box;
 	text-decoration: none; /*removes underline in <a> tag*/
+	list-style: none; /*removes bullet points*/
 }
 html, body{
 	margin: 0;
 	padding: 0;
 	position: relative;
-	height: 300vh;
+	height: 300vh; /*3 pages*/
 	width: 100%;
+	scroll-snap-type: y mandatory;
 }
 .center{
 	margin: auto;
@@ -36,6 +38,9 @@ h3{
 h4{
 	
 }
+.highlight{
+	color: gold;
+}
 /*End of Global Formats*/
 
 
@@ -46,6 +51,7 @@ h4{
 	position: relative;
 	margin: 0;
 	overflow: hidden;
+	scroll-snap-align: start;
 }
 main{
 	margin-top: 50px; /*height of header*/
@@ -73,7 +79,7 @@ main{
 	filter: blur(10px);
 }
 #secondPage{
-	background-color: #514F4F;
+	background-color: #333;
 	color: antiquewhite;
 }
 #secondPage::after{
@@ -81,8 +87,11 @@ main{
 	height: 100vh;
 	content: '';
 	display: block;
-	opacity: 0.2;
-	background-color: antiquewhite;
+	
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #333;
+	opacity: 0.6;
 	filter: blur(10px);
 }
 #lastPage{
@@ -95,7 +104,8 @@ main{
 	content: '';
 	display: block;
 	opacity: 0.3;
-	background-color: black;
+	background-image: url(../images/bg/pexels-photo.jpg);
+	background-color: #333;
 	filter: blur(10px);
 }
 /*End of page formatting*/
@@ -109,12 +119,22 @@ header{
 	/*Makes it always stay at top of page*/
 	position: fixed;
 	top: 0;
-	z-index: 2;
+	z-index: 3;
+}
+header::after{
+	top: 0;
+	height: 55px;
+	width: inherit;
+	content: '';
+	display: block;
+	background-color: #968C8C;
+	filter: blur(2px);
 }
 header ul{
 	height: inherit;
 	width: inherit;
-	list-style: none; /*removes bullet points*/
+	position: absolute;
+	z-index: 4;
 }
 header li{
 	padding: 0 15px 0 0; /*adds some space between words*/
@@ -123,7 +143,7 @@ header li{
 	line-height: 50px; /*same height as header*/
 	vertical-align: middle;
 }
-#siteHeading{
+.siteHeading{
 	height: inherit;
 	display: inline-block;
 	left: 0;
