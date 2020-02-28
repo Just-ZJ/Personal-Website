@@ -23,28 +23,45 @@
 }
 
 .sideNavBar{
-	margin-top: 100px;
-	position: absolute;
 	z-index: 2;
+	font-size: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	position: absolute;
+	user-select: none;
+	cursor: pointer;
+}
+.sideNavBar ul li{
+	padding: 30px;
+}
+.radar-graph{
+	right: -15%;
+	width: 85vw;
+	top: 45%;
+	transform: translateY(-50%);
+	position: absolute;
+}
+.hide{
+	display: none;
 }
 
 
 
 
-/*Start of skills*/
+/*Start of skills-stars layout
 .skills-description-container{
 	width: 96%;
 	height: 35%;
 	margin: 0 2%;
 	float: right;
 	padding-top: 15px;
-	user-select: none; /*disables selection of any text/cannot highlight*/
+	user-select: none; /*disables selection of any text/cannot highlight
 	display: ;
 }
 .grid-container{
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 1em; /*adds gap between grid-col1 & grid-col12*/
+	grid-gap: 1em; /*adds gap between grid-col1 & grid-col12
 }
 .header{
 	grid-column: 1/5;
@@ -60,7 +77,7 @@
 .lang-Descript, .prog-Descript{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-gap: 0.5em; /*adds gap between each line*/
+	grid-gap: 0.5em; /*adds gap between each line
 }
 .nameOfLangProg{
 	padding-left: 225px;
@@ -84,7 +101,7 @@
 	position: absolute;
 	/*initial position*/
 	
-	/*grid layouts*/
+	/*grid layouts
 	display: none;
 	grid-template-rows: repeat(5, 1fr);
 	grid-template-columns: repeat(2, 1fr);
@@ -95,14 +112,14 @@
 
 
 
-/*Start of Job experiences*/
+/*Start of Job experiences
 .job-exp{
 	width: 100%;
 	height: 65%;
 	float: left;
-	display: none;
+	display: ;
 }
-/*start of slideshow*/
+/*start of slideshow
 .slideshow-container{
 	height: 48vh;
 	position: relative;
@@ -111,14 +128,14 @@
 	text-align: center;
 	background-color: #121212;
 }
-/*Start of grid layouts*/
+/*Start of grid layouts
 .grid-job-exp-slide-container{
 	height: inherit;
 	width: 100%;
 	position: relative;
 	background-color: antiquewhite;
-	/*grid layouts*/
-	display: inline-grid;
+	/*grid layouts
+	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-column-gap: 0.25em;
 }
@@ -133,14 +150,14 @@
 }
 /*End of grid layouts*/
 
-/*start of previous and next buttons*/
+/*start of previous and next buttons
 .prev, .next{
 	position: absolute;
 	line-height: 48vh;
 	vertical-align: middle;
 	padding: 0 10px;
-	user-select: none; /*disables selection of any text/cannot highlight*/
-	cursor: pointer; /*changes cursor shape*/
+	user-select: none; /*disables selection of any text/cannot highlight
+	cursor: pointer; /*changes cursor shape
 }
 .prev:hover, .next:hover{
 	background-color: antiquewhite;
@@ -156,7 +173,7 @@
 	grid-column:2/3;
 	right: 0;
 }
-/*end of previous and next buttons*/
+/*end of previous and next buttons
 .duration{
 }
 .job-descript{
@@ -183,3 +200,116 @@
 }
 /*end of slideshow*/
 /*End of Job experiences*/
+
+
+
+
+
+
+
+.job-exp{
+	width: 55%;
+	height: 85vh;
+	margin: 30px 50px;
+	right:  0;
+	top: 44%;
+	transform: translateY(-50%);
+	position: absolute;
+}
+/*start of slideshow*/
+.slideshow-container{
+	height: 100%;
+	width: 100%;
+	/*grid layouts*/
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-gap: 0.25em;
+}
+.job-exp-slide{
+	height: 100%;
+	border-radius: 15px;
+	background-color: #333; /**change to #333/
+	/*centers vertically in grid*/
+	display: grid;
+	align-items: center;
+}
+.job-exp-slide:hover{
+	transition: ease-in-out 0.5s;
+	filter: blur(2px) brightness(1.5);
+	user-select: none;
+	cursor: pointer;
+}
+/*end of slide show*/
+.company-description{
+	padding: auto;
+}
+.job-descript{
+	padding: 15px 30px;
+	text-align: left;
+}
+.job-descript ul li{
+	padding: 5px 0 0;
+	list-style: square;
+}
+/*start of previous, next, back buttons*/
+.prev, .next{
+	position: absolute;
+	line-height: 85vh;
+	vertical-align: middle;
+	padding: 0 10px;
+	user-select: none; /*disables selection of any text/cannot highlight*/
+	cursor: pointer; /*changes cursor shape*/
+}
+.prev{
+	margin-left: -30px;
+	left: 0;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+.next{
+	margin-right: -30px;
+	right: 0;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.prev:hover, .next:hover{
+	background-color: antiquewhite;
+	opacity: 0.5;
+	color: black;
+	transition: ease-in-out 0.5s;
+}
+.back{
+	position: absolute;
+	padding: 5px 10px;
+	margin: 10px;
+	user-select: none;
+	cursor: pointer;
+	font-size: 16;
+}
+.back:hover{
+	background-color: antiquewhite;
+	transition: ease-in-out 0.5s;
+	color: black;
+	border-radius: 15px;
+}
+/*end of previous, next, back buttons*/
+.dot-container{
+	width: inherit;
+	position: absolute;
+	bottom: 0;
+}
+.dot {
+	height: 13px;
+ 	width: 13px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+	user-select: none;
+	cursor: pointer;
+}
+.active{
+	background-color: #717171;
+}

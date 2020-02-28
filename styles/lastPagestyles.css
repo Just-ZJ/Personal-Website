@@ -3,7 +3,7 @@
 
 /*Start of Last Page*/
 .lastPageTitle{
-	padding-top: 15px;
+	padding: 15px 0;
 	width: inherit;
 	text-align: center;
 }
@@ -14,11 +14,20 @@
 /*End of Last Page*/
 
 
-.radar-graph{
-	width: 75vw;
-	height: 100vh;
+.personal-project-container{
+	margin: 0 5%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-gap: 0.75em;
 }
-
-.hide{
-	display: none;
+.each-project{
+	background-color: brown;
+	border-radius: 10px;
+	height: 35vh;
+	user-select: none;
+	cursor: pointer;
+}
+.each-project:hover{
+	filter: brightness(1.25);
 }

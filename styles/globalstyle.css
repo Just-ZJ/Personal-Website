@@ -13,7 +13,7 @@ html, body{
 	padding: 0;
 	position: relative;
 	height: 300vh; /*3 pages*/
-	width: 100%;
+	width: 100%; 
 	scroll-snap-type: y mandatory;
 }
 .center{
@@ -174,7 +174,7 @@ footer{
 	overflow: hidden;
 	/*Makes footer stay at bottom of last page*/
 	position: absolute;
-	bottom: 0;
+	bottom: -17px;
 	z-index: 1;
 }
 .copy-right{
