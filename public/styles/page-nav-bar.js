@@ -1,6 +1,6 @@
 const navbar = document.getElementById("bar-menu-container");
 const navMenuContainer = document.getElementById("nav-menu-container");
-const navigation = document.getElementById("navigation");
+const navigation = document.getElementsByTagName("nav")[0];
 
 navigation.addEventListener("mouseenter", showNav);
 function showNav() {
@@ -15,11 +15,11 @@ function showNav() {
    navigation.style.transitionDuration = "0.75s";
 
    navigation.addEventListener("mouseleave", function hideNav() {
+      /*returns 3 bar menu to normal*/
       navbar.style.transform = "rotate(0deg)";
       navbar.style.transformOrigin = "center";
       navbar.style.transitionDuration = "0.5s";
-
-      navigation.style.width = "50px";
+      /*returns navigation menu to normal*/ navigation.style.width = "50px";
       navMenuContainer.style.display = "none";
    });
 }

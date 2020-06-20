@@ -32,7 +32,7 @@ p {
    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
 h1 {
-   font-weight: 1000;
+   font-weight: 900;
 }
 h3 {
    padding: 10px 0;
@@ -116,7 +116,7 @@ header {
    margin: 15px 0;
    z-index: 3;
 }
-#navigation {
+nav {
    height: inherit;
    width: 50px; /*ball background for 3 line bar menu*/
    float: right;

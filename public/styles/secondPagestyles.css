@@ -1,52 +1,58 @@
 @charset "utf-8";
 /* CSS Document */
 
-
-.left-container2{
-	position: absolute;
-	width: 40%;
-	top: 0;
-	height: 100vh;
+.left-container2 {
+   position: absolute;
+   width: 40%;
+   top: 0;
+   height: 100vh;
 }
-.left-container2::after{
-	content: '';
-	display: block;
-	background-image: url(../images/bg/pexels-photo-547117.jpeg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	border-top-right-radius: 400px;
-	border-bottom-right-radius: 400px;
-	top: 0;
-	height: 100vh;
-	filter: blur(3px);
-}
-
-.sideNavBar{
-	z-index: 2;
-	font-size: 30px;
-	top: 50%;
-	transform: translateY(-50%);
-	position: absolute;
-	user-select: none;
-	cursor: pointer;
-}
-.sideNavBar ul li{
-	padding: 30px;
-}
-.radar-graph{
-	right: -15%;
-	width: 85vw;
-	top: 45%;
-	transform: translateY(-50%);
-	position: absolute;
-}
-.hide{
-	display: none;
+.left-container2::after {
+   content: "";
+   display: block;
+   background-image: url(../images/bg/pexels-photo-547117.jpeg);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   border-top-right-radius: 400px;
+   border-bottom-right-radius: 400px;
+   top: 0;
+   height: 100vh;
+   filter: blur(3px);
 }
 
-
-
+.sideNavBar {
+   z-index: 2;
+   font-size: 30px;
+   top: 50%;
+   transform: translateY(-50%);
+   position: absolute;
+   user-select: none;
+   cursor: pointer;
+}
+.sideNavBar ul li {
+   padding: 10px 20px;
+   border-width: 15px;
+   margin: 15px;
+   background-color: rgb(85, 83, 83);
+   border-radius: 20px;
+   text-align: center;
+}
+.sideNavBar ul li:hover {
+   background-color: whitesmoke;
+   color: black;
+   transform: scale(1.1);
+}
+.radar-graph {
+   right: -15%;
+   width: 85vw;
+   top: 54%;
+   transform: translateY(-50%);
+   position: absolute;
+}
+.hide {
+   display: none;
+}
 
 /*Start of skills-stars layout
 .skills-description-container{
@@ -100,17 +106,14 @@
 	vertical-align: middle;
 	position: absolute;
 	/*initial position*/
-	
-	/*grid layouts
+
+/*grid layouts
 	display: none;
 	grid-template-rows: repeat(5, 1fr);
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 0.5em;
 }
 /*End of skills*/
-
-
-
 
 /*Start of Job experiences
 .job-exp{
@@ -201,115 +204,111 @@
 /*end of slideshow*/
 /*End of Job experiences*/
 
-
-
-
-
-
-
-.job-exp{
-	width: 55%;
-	height: 85vh;
-	margin: 30px 50px;
-	right:  0;
-	top: 44%;
-	transform: translateY(-50%);
-	position: absolute;
+.job-exp {
+   width: 55%;
+   height: 85vh;
+   margin: 30px 50px;
+   right: 0;
+   top: 44%;
+   transform: translateY(-50%);
+   position: absolute;
 }
 /*start of slideshow*/
-.slideshow-container{
-	height: 100%;
-	width: 100%;
-	/*grid layouts*/
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	grid-gap: 0.25em;
+.slideshow-container {
+   height: 100%;
+   width: 100%;
+   /*grid layouts*/
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+   grid-gap: 0.25em;
 }
-.job-exp-slide{
-	height: 100%;
-	border-radius: 15px;
-	background-color: #333; /**change to #333/
+.job-exp-slide {
+   height: 100%;
+   border-radius: 15px;
+   background-color: #333; /**change to #333/
 	/*centers vertically in grid*/
-	display: grid;
-	align-items: center;
+   display: grid;
+   align-items: center;
 }
-.job-exp-slide:hover{
-	transition: ease-in-out 0.5s;
-	filter: blur(2px) brightness(1.5);
-	user-select: none;
-	cursor: pointer;
+.job-exp-slide:hover {
+   transition: ease-in-out 0.5s;
+   filter: blur(2px) brightness(1.5);
+   user-select: none;
+   cursor: pointer;
 }
 /*end of slide show*/
-.company-description{
-	padding: auto;
+.company-description {
+   padding: auto;
 }
-.job-descript{
-	padding: 15px 30px;
-	text-align: left;
+.job-descript {
+   padding: 15px 30px;
+   text-align: left;
 }
-.job-descript ul li{
-	padding: 5px 0 0;
-	list-style: square;
+.job-descript ul li {
+   padding: 5px 0 0;
+   list-style: square;
 }
 /*start of previous, next, back buttons*/
-.prev, .next{
-	position: absolute;
-	line-height: 85vh;
-	vertical-align: middle;
-	padding: 0 10px;
-	user-select: none; /*disables selection of any text/cannot highlight*/
-	cursor: pointer; /*changes cursor shape*/
+.prev,
+.next {
+   position: absolute;
+   line-height: 85vh;
+   vertical-align: middle;
+   padding: 0 10px;
+   user-select: none; /*disables selection of any text/cannot highlight*/
+   cursor: pointer; /*changes cursor shape*/
 }
-.prev{
-	margin-left: -30px;
-	left: 0;
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
+.prev {
+   margin-left: -30px;
+   left: 0;
+   border-top-left-radius: 15px;
+   border-bottom-left-radius: 15px;
 }
-.next{
-	margin-right: -30px;
-	right: 0;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
+.next {
+   margin-right: -30px;
+   right: 0;
+   border-top-right-radius: 15px;
+   border-bottom-right-radius: 15px;
 }
-.prev:hover, .next:hover{
-	background-color: antiquewhite;
-	opacity: 0.5;
-	color: black;
-	transition: ease-in-out 0.5s;
+.prev:hover,
+.next:hover {
+   background-color: antiquewhite;
+   opacity: 0.5;
+   color: black;
+   transition: ease-in-out 0.5s;
 }
-.back{
-	position: absolute;
-	padding: 5px 10px;
-	margin: 10px;
-	user-select: none;
-	cursor: pointer;
-	font-size: 16;
+.back {
+   position: absolute;
+   padding: 5px 10px;
+   margin: 10px;
+   user-select: none;
+   cursor: pointer;
+   font-size: 16;
 }
-.back:hover{
-	background-color: antiquewhite;
-	transition: ease-in-out 0.5s;
-	color: black;
-	border-radius: 15px;
+.back:hover {
+   background-color: antiquewhite;
+   transition: ease-in-out 0.5s;
+   color: black;
+   border-radius: 15px;
 }
 /*end of previous, next, back buttons*/
-.dot-container{
-	width: inherit;
-	position: absolute;
-	bottom: 0;
+.dot-container {
+   width: inherit;
+   position: absolute;
+   bottom: 0;
 }
 .dot {
-	height: 13px;
- 	width: 13px;
-	margin: 0 2px;
-	background-color: #bbb;
-	border-radius: 50%;
-	display: inline-block;
-	transition: background-color 0.6s ease;
-	user-select: none;
-	cursor: pointer;
+   height: 13px;
+   width: 13px;
+   margin: 0 2px;
+   background-color: #bbb;
+   border-radius: 50%;
+   display: inline-block;
+   transition: background-color 0.6s ease;
+   user-select: none;
+   cursor: pointer;
 }
-.active{
-	background-color: #717171;
+.active {
+   background-color: #717171;
 }
