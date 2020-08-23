@@ -3,18 +3,48 @@
    <head>
       <meta charset="utf-8" />
       <title>ZJ Personal Portfolio</title>
-      <!--links css file-->
+      <!--links css files-->
       <link rel="stylesheet" type="text/css" href="styles/globalstyle.css" />
       <link rel="stylesheet" type="text/css" href="styles/firstPagestyles.css" />
       <link rel="stylesheet" type="text/css" href="styles/secondPagestyles.css" />
       <link rel="stylesheet" type="text/css" href="styles/lastPagestyles.css" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
-      <!--for chart.js-->
+
+      <!--links javascript files-->
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"
+         defer
+      ></script>
+      <script src="styles/radar-chart.js" defer></script>
+      <script src="styles/page-nav-bar.js" defer></script>
+
+      <!--Handlebars Template for Job Experiences-->
+      <script src="styles/handlebar-templating-for-job-experiences.js" async></script>
+      <script src="./styles/handlebars.min.js"></script>
+      <script id="unclickedTemplate" type="text/x-handlebars-template">
+         {{#each jobExperiences}}
+            <div class="job-exp-slide"">
+               <div class="center">
+                  <img src={{this.image.src}} alt={{this.image.alt}} height="100" />
+                  <h3>{{this.location}}</h3>
+                  <h4>{{this.title}}</h4>
+                  <h4>{{this.duration}}</h4>
+               </div>
+               <div class="job-descript center hide">
+                  <ul>
+                     {{#each jobDescription}}
+                     <li><p>{{this.description}}</p></li>
+                     {{/each}}
+                  </ul>
+               </div>
+            </div>
+         {{/each}}
+      </script>
+      <script src="styles/job-exp-slideshow.js" async></script>
    </head>
 
    <body>
       <header>
-         <nav>
+         <nav id="page-navigation-menu">
             <div id="bar-menu-container">
                <div class="bar-menu-nav"></div>
                <div class="bar-menu-nav"></div>
@@ -107,9 +137,9 @@
 
                <div class="contact-info center">
                   <h3>
-                     <a href="mailto:tanzhengji@yahoo.com" target="_top"
-                        >Email: tanzhengji@yahoo.com</a
-                     >
+                     <a href="mailto:tanzhengji@yahoo.com" target="_top">
+                        Email: tanzhengji@yahoo.com
+                     </a>
                   </h3>
                </div>
             </div>
@@ -136,484 +166,13 @@
                <div class="hide"><canvas id="programsExp"></canvas></div>
             </div>
 
-            <!--	<div class="skills-description-container">
-				<div class="grid-container">
-					<div class="header center">
-						<h2>Skills</h2>
-					</div>
-
-					<div class="text-bubble">
-						<div>
-							Novice:
-						</div>
-						<div>
-							<img src="images/star-black.png" height="15" width="15" />
-						</div>
-
-						<div>
-							Beginner:
-						</div>
-						<div>
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-						</div>
-
-						<div>
-							Intermediate:
-						</div>
-						<div>
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-						</div>
-
-						<div>
-							Advanced:
-						</div>
-						<div>
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-						</div>
-
-						<div>
-							Expert:
-						</div>
-						<div>
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-							<img src="images/star-black.png" height="15" width="15" />
-						</div>
-					</div>
-
-					<div class="grid-col1-container">
-							<div class="center">
-								<h3>Languages</h3>
-							</div>
-							<div class="lang-Descript">
-								<div class="nameOfLangProg">
-									<h4>Java</h4>
-								</div>
-								<div class="star-container">
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-blank.png" height="15" width="15" />
-									<img src="images/star-blank.png" height="15" width="15" />
-								</div>
-								<div class="nameOfLangProg">
-									<h4>HTML</h4>
-								</div>
-								<div class="star-container">
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-blank.png" height="15" width="15" />
-									<img src="images/star-blank.png" height="15" width="15" />
-								</div>
-								<div class="nameOfLangProg">
-									<h4>CSS</h4>
-								</div>
-								<div class="star-container">
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-blank.png" height="15" width="15" />
-									<img src="images/star-blank.png" height="15" width="15" />
-								</div>
-								<div class="nameOfLangProg">
-									<h4>Javascript</h4>
-								</div>
-								<div class="star-container">
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-black.png" height="15" width="15" />
-									<img src="images/star-blank.png" height="15" width="15" />
-									<img src="images/star-blank.png" height="15" width="15" />
-									<img src="images/star-blank.png" height="15" width="15" />
-								</div>
-							</div>
-					</div>
-
-					<div class="grid-col2-container">
-						<div class="center">
-							<h3>Programs</h3>
-						</div>
-						<div class="prog-Descript">
-							<div class="nameOfLangProg">
-								<h4>MS Word</h4>
-							</div>
-							<div class="star-container">
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-							</div>
-							<div class="nameOfLangProg">
-								<h4>MS Excel</h4>
-							</div>
-							<div class="star-container">
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-							</div>
-							<div class="nameOfLangProg">
-								<h4>MS Powerpoint</h4>
-							</div>
-							<div class="star-container">
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-							</div>
-							<div class="nameOfLangProg">
-								<h4>MS Access</h4>
-							</div>
-							<div class="star-container">
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-							</div>
-							<div class="nameOfLangProg">
-								<h4>Photoshop</h4>
-							</div>
-							<div class="star-container">
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-black.png" height="15" width="15" />
-								<img src="images/star-blank.png" height="15" width="15" />
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
-
-            <!--<div class="job-exp">
-				<h2 class="center">Job Experiences</h2>
-				<br />
-
-				<div class="slideshow-container">
-					<div class="grid-job-exp-slide-container">
-						<div class="job-exp-slide" id="slide1">
-							<div class="company-description center">
-								<img src="images/osu-logo.png" alt="OSU Logo" height="100" />
-								<h3>Graduate &amp; Professional Admissions Office</h3>
-								<h4>Admissions Assistant, Federal Work-Study</h4>
-								<h4 class="duration">October 2019 – Current</h4>
-							</div>
-							<div class="job-descript">
-								<ul>
-									<li>
-										<p>
-											Provide support to the Graduate and
-											Professional Admissions Office
-										</p>
-									</li>
-									<li>
-										<p>
-											Responsible for answering student calls and emails, as
-											well as assisting in ad-hoc projects
-										</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="job-exp-slide" id="slide2">
-							<div class="company-description center">
-								<img src="images/rsaf-logo.png" alt="RSAF Logo" height="100" />
-								<h3>Republic of Singapore Air Force</h3>
-								<h4>Combat Security Trooper, Corporal</h4>
-								<h4 class="duration">July 2017 – May 2019</h4>
-							</div>
-							<div class="job-descript">
-								<ul>
-									<li>
-										<p>
-											Responsible for upholding security of key installations
-											as well as day-to-day administrative duties
-										</p>
-									</li>
-									<li>
-										<p>Guardroom 2IC</p>
-									</li>
-									<li>
-										<p>
-											Assists in orientating and training of new combat
-											security troopers
-										</p>
-									</li>
-									<li>
-										<p>Active participant in squadron innovation team</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="job-exp-slide" id="slide3">
-							<div class="company-description center">
-								<img src="images/citi-logo.png" alt="Citibank Logo" height="100" />
-								<h3>Citibank, Singapore</h3>
-								<h4>Personal Banker, Internship</h4>
-								<h4 class="duration">March 2016 – August 2016</h4>
-							</div>
-
-							<div class="job-descript">
-								<ul>
-									<li>
-										<p>
-											Responsible for day-to-day administrative duties and
-											preparation of daily sales
-										</p>
-									</li>
-									<li>
-										<p>Provide front desk customer service</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="job-exp-slide" id="slide4">
-							<div class="company-description center">
-								<img src="images/Marriott_Logo.png" alt="Marriott-Logo" height="100" />
-								<h3>Marriott Hotel, Singapore</h3>
-								<h4>Part-Time Banquet Server</h4>
-								<h4 class="duration">June 2014 – October 2014</h4>
-							</div>
-
-							<div class="job-descript">
-								<ul>
-									<li>
-										<p>
-											Responsible for day-to-day operations such as setting up
-											and clearing of tables, serving and portioning of food,
-											pouring of wines and drinks
-										</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="job-exp-slide" id="slide5">
-							<div class="company-description center">
-								<img src="images/swissotel-logo.png" alt="Swissotel Logo" height="100" />
-								<h3>Blue Potato, Swissotel, Singapore</h3>
-								<h4>Part-Time Waiter</h4>
-								<h4 class="duration">March 2014 – May 2014</h4>
-							</div>
-
-							<div class="job-descript">
-								<ul>
-									<li>
-										<p>
-											Responsible for day-to-day operations such as setting up
-											and clearing of tables, taking orders, cashiering,
-											receptionist duties, as well as room-service
-										</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="job-exp-slide" id="slide6">
-							<div class="company-description center">
-								<img src="images/kk-hospital-logo.png" alt="KK Hospital Logo" height="100" />
-								<h3>KK Women's and Children's Hospital, Singapore</h3>
-								<h4>Temporary Packer</h4>
-								<h4 class="duration">January 2014 – March 2014</h4>
-							</div>
-
-							<div class="job-descript">
-								<ul>
-									<li>
-										<p>
-											Responsible for organizing and packing of sensitive data
-										</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						first/most recent job exp repeated for looping in javascript
-						<div class="job-exp-slide" id="slide7">
-							<div class="company-description center">
-								<img src="images/osu-logo.png" alt="OSU Logo" height="100" />
-								<h3>Graduate &amp; Professional Admissions, OSU</h3>
-								<h4>Admissions Assistant</h4>
-								<h4 class="duration">October 2019 – Current</h4>
-							</div>
-							<div class="job-descript">
-								<ul>
-									<li>
-										<p>
-											Provide administrative support to the Graduate and
-											Professional Admissions Office
-										</p>
-									</li>
-									<li>
-										<p>
-											Responsible for answering student calls and emails, as
-											well as assisting in ad-hoc projects
-										</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<a class="prev" onClick="nextSlide(-1)">
-							<h2>&#10094;</h2>
-						</a>
-						<a class="next" onClick="nextSlide(1)">
-							<h2>&#10095;</h2>
-						</a>
-					</div>
-				</div>
-			</div>-->
-
             <div class="job-exp">
-               <div class="slideshow-container">
-                  <a class="back hide" onClick="jobSlideDecrease()"><p>&#8592; Back</p></a>
-                  <div class="job-exp-slide" onClick="jobSlideExpand(0)">
-                     <div class="company-description center">
-                        <img src="images/osu-logo.png" alt="OSU Logo" height="100" />
-                        <h3>Graduate &amp; Professional Admissions Office</h3>
-                        <h4>Admissions Assistant, Federal Work-Study</h4>
-                        <h4 class="duration">October 2019 – Current</h4>
-                     </div>
-                     <div class="job-descript hide">
-                        <ul>
-                           <li>
-                              <p>
-                                 Provide support to the Graduate and Professional Admissions Office
-                              </p>
-                           </li>
-                           <li>
-                              <p>
-                                 Responsible for answering student calls and emails, as well as
-                                 assisting in ad-hoc projects
-                              </p>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="job-exp-slide" onClick="jobSlideExpand(1)">
-                     <div class="company-description center">
-                        <img src="images/rsaf-logo.png" alt="RSAF Logo" height="100" />
-                        <h3>Republic of Singapore Air Force</h3>
-                        <h4>Combat Security Trooper, Corporal</h4>
-                        <h4 class="duration">July 2017 – May 2019</h4>
-                     </div>
-                     <div class="job-descript hide">
-                        <ul>
-                           <li>
-                              <p>
-                                 Provide support to the Graduate and Professional Admissions Office
-                              </p>
-                           </li>
-                           <li>
-                              <p>
-                                 Responsible for answering student calls and emails, as well as
-                                 assisting in ad-hoc projects
-                              </p>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="job-exp-slide" onClick="jobSlideExpand(2)">
-                     <div class="company-description center">
-                        <img src="images/citi-logo.png" alt="Citibank Logo" height="100" />
-                        <h3>Citibank, Singapore</h3>
-                        <h4>Personal Banker, Internship</h4>
-                        <h4 class="duration">March 2016 – August 2016</h4>
-                     </div>
-                     <div class="job-descript hide">
-                        <ul>
-                           <li>
-                              <p>
-                                 Responsible for day-to-day administrative duties and preparation of
-                                 daily sales
-                              </p>
-                           </li>
-                           <li>
-                              <p>Provide front desk customer service</p>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="job-exp-slide" onClick="jobSlideExpand(3)">
-                     <div class="company-description center">
-                        <img src="images/Marriott_Logo.png" alt="Marriott-Logo" height="100" />
-                        <h3>Marriott Hotel, Singapore</h3>
-                        <h4>Part-Time Banquet Server</h4>
-                        <h4 class="duration">June 2014 – October 2014</h4>
-                     </div>
-                     <div class="job-descript hide">
-                        <ul>
-                           <li>
-                              <p>
-                                 Responsible for day-to-day operations such as setting up and
-                                 clearing of tables, serving and portioning of food, pouring of
-                                 wines and drinks
-                              </p>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-
-                  <div class="job-exp-slide" onClick="jobSlideExpand(4)">
-                     <div class="company-description center">
-                        <img src="images/swissotel-logo.png" alt="Swissotel Logo" height="100" />
-                        <h3>Blue Potato, Swissotel, Singapore</h3>
-                        <h4>Part-Time Waiter</h4>
-                        <h4 class="duration">March 2014 – May 2014</h4>
-                     </div>
-                     <div class="job-descript hide">
-                        <ul>
-                           <li>
-                              <p>
-                                 Responsible for day-to-day operations such as setting upand
-                                 clearing of tables, taking orders, cashiering, receptionist duties,
-                                 as well as room-service
-                              </p>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="job-exp-slide" onClick="jobSlideExpand(5)">
-                     <div class="company-description center">
-                        <img
-                           src="images/kk-hospital-logo.png"
-                           alt="KK Hospital Logo"
-                           height="100"
-                        />
-                        <h3>KK Women's and Children's Hospital, Singapore</h3>
-                        <h4>Temporary Packer</h4>
-                        <h4 class="duration">January 2014 – March 2014</h4>
-                     </div>
-                     <div class="job-descript hide">
-                        <ul>
-                           <li>
-                              <p>Responsible for organizing and packing of sensitive data</p>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-
-                  <a class="prev" onClick="nextSlide(-4)"><h2>&#10094;</h2></a>
-                  <a class="next" onClick="nextSlide(4)"><h2>&#10095;</h2></a>
-                  <div class="dot-container center">
-                     <span class="dot active" onClick="nextSlide(-4)"></span>
-                     <span class="dot" onClick="nextSlide(4)"></span>
-                  </div>
-               </div>
+               <a class="back hide" onClick="backButtonFunction()"><p>&#8592; Back</p></a>
+               <!--Templating by Handlebars to display job experiences-->
+               <div id="unclickedTemplateFill"></div>
+               <a id="prev" class="hide"><h2>&#10094;</h2></a>
+               <a id="next"><h2>&#10095;</h2></a>
+               <div id="dot-container" class="center"></div>
             </div>
          </main>
       </section>
@@ -637,7 +196,7 @@
 
       <footer>
          <span class="copy-right">
-            <p>&copy; Zheng Ji Tan, 2019 Last updated: 16 June 2020</p>
+            <p>&copy; Zheng Ji Tan, 2019 Last updated: 22 August 2020</p>
             <!--there is a small gap between the bottom of page and footer. solved with -17px-->
             <!--put email?
 			<h3>
@@ -661,9 +220,4 @@
          </div>
       </footer>
    </body>
-   <script src="styles/job-exp-slideshow.js"></script>
-   <script src="styles/radar-chart.js"></script>
-   <script src="styles/page-nav-bar.js"></script>
-
-   <!--<script src="styles/stars-description.js"></script>-->
 </html>

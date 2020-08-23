@@ -69,10 +69,9 @@ main {
    content: ""; /*empty content*/
    display: block;
    /*Background Image styles*/
-   background-image: url(../images/scenery-bg.png);
+   background: url(../images/scenery-bg.png) no-repeat fixed;
    background-size: cover;
-   background-repeat: no-repeat;
-   opacity: 0.6;
+   opacity: 0.7;
    filter: blur(10px);
 }
 #secondPage {

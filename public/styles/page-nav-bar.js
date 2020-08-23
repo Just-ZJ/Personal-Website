@@ -1,9 +1,9 @@
 const navbar = document.getElementById("bar-menu-container");
 const navMenuContainer = document.getElementById("nav-menu-container");
-const navigation = document.getElementsByTagName("nav")[0];
+const navigation = document.getElementById("page-navigation-menu");
 
-navigation.addEventListener("mouseenter", showNav);
-function showNav() {
+//navigation.addEventListener("mouseenter", showNav);
+navigation.onmouseenter = function () {
    /*3 bar menu animation*/
    navbar.style.transform = "rotate(-90deg)";
    navbar.style.transformOrigin = "center";
@@ -22,7 +22,7 @@ function showNav() {
       /*returns navigation menu to normal*/ navigation.style.width = "50px";
       navMenuContainer.style.display = "none";
    });
-}
+};
 
 const dlIconContainer = document.getElementById("download-icon-container");
 dlIconContainer.addEventListener("mouseenter", doEffects);
