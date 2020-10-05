@@ -8,21 +8,25 @@ const context = {
             src: "images/osu-logo.png",
             alt: "OSU Logo",
          },
-         location: "Morrill Tower, The Ohio State University",
+         location: "University Housing - Residence Life",
          title: "Resident Advisor",
          duration: "August 2020 – Current",
          jobDescription: [
             {
-               description: "Provide emotional support & resources to residents",
+               description:
+                  "Served as a peer-advisor for the Towers Community Council, and guiding its executive board members",
             },
             {
-               description: "Plan social activities and floor bonding opportunities for residents",
+               description:
+                  "Supported the success of residents by providing a listening ear, guiding them to academic or social resources, and giving them quick peer tutoring sessions should the campus academic resources not be available in an emergent situation",
             },
             {
-               description: "Committed to creating an inclusive and safe environment for residents",
+               description:
+                  "Promoted a positive and inclusive community by bridging the diverse interests of all floor residents and establishing commonality while developing and grooming them for success through active and passive programming. ",
             },
             {
-               description: "Hall Council Committee",
+               description:
+                  "Resolved conflict and relationship issues by creating an environment where residents could learn and reflect about issues concerning themselves and their community",
             },
          ],
       },
@@ -36,7 +40,8 @@ const context = {
          duration: "October 2019 – April 2020",
          jobDescription: [
             {
-               description: "Provide support to Graduate and Professional Admissions Office",
+               description:
+                  "Provide active support to the Graduate and Professional Admissions Office",
             },
             {
                description: "Responsible for answering student's inquiries",
@@ -60,7 +65,7 @@ const context = {
                   "Responsible for upholding security of key installations as well as day-to-day planning",
             },
             {
-               description: "In-charge of orientating and training new combat security troopers",
+               description: "Assists in orientating and training of new combat security troopers",
             },
             {
                description: "Part of squadron innovation team",
@@ -84,7 +89,7 @@ const context = {
                   "Responsible for day-to-day administrative duties and preparation of daily sales",
             },
             {
-               description: "Provide front desk customer service",
+               description: "Provided front desk customer service",
             },
          ],
       },
