@@ -1,5 +1,5 @@
 // JavaScript Document
-const source = document.getElementById("unclickedTemplate").innerHTML;
+const source = document.getElementById("job-Template").innerHTML;
 const template = Handlebars.compile(source);
 const context = {
    jobExperiences: [
@@ -139,4 +139,4 @@ const context = {
 };
 
 const compiledHTML = template(context);
-document.getElementById("unclickedTemplateFill").innerHTML = compiledHTML;
+document.getElementById("job-Template-Fill").innerHTML = compiledHTML;

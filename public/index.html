@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
-      <meta charset="utf-8" />
       <title>ZJ Personal Portfolio</title>
+      <meta content="text/html; charset=utf-8" />
+
       <!--links css files-->
       <link rel="stylesheet" type="text/css" href="styles/globalstyle.css" />
       <link rel="stylesheet" type="text/css" href="styles/firstPagestyles.css" />
       <link rel="stylesheet" type="text/css" href="styles/secondPagestyles.css" />
       <link rel="stylesheet" type="text/css" href="styles/lastPagestyles.css" />
+      <link rel="stylesheet" type="text/css" href="styles/slide-show.css" />
 
       <!--links javascript files-->
       <script
@@ -20,7 +22,7 @@
       <!--Handlebars Template for Job Experiences-->
       <script src="styles/handlebar-templating-for-job-experiences.js" async></script>
       <script src="./styles/handlebars.min.js"></script>
-      <script id="unclickedTemplate" type="text/x-handlebars-template">
+      <script id="job-Template" type="text/x-handlebars-template">
          {{#each jobExperiences}}
             <div class="job-exp-slide"">
                <div class="center">
@@ -29,7 +31,7 @@
                   <h4>{{this.title}}</h4>
                   <h4>{{this.duration}}</h4>
                </div>
-               <div class="job-descript center hide">
+               <div class="job-description center hide">
                   <ul>
                      {{#each jobDescription}}
                      <li><p>{{this.description}}</p></li>
@@ -114,10 +116,14 @@
 
                <div class="social-media-container center">
                   <span class="social-media-logo">
-                     <a href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/" target="_blank">
+                     <a
+                        href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                     >
                         <img
                            src="images/LinkedIn-Logo-black.png"
-                           alt="Linkedin"
+                           alt="LinkedIn"
                            height="50"
                            width="50"
                         />
@@ -125,7 +131,11 @@
                   </span>
 
                   <span class="social-media-logo">
-                     <a href="https://github.com/dunlike2big/zj-tan.git" target="_blank">
+                     <a
+                        href="https://github.com/dunlike2big/zj-tan.git"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                     >
                         <img
                            src="images/github-logo-black.png"
                            alt="Github"
@@ -152,10 +162,10 @@
          <div class="left-container2">
             <div class="sideNavBar">
                <ul>
-                  <a onClick="skillsUnhide(0)"><li>Languages</li></a>
-                  <a onClick="skillsUnhide(1)"><li>Programming Languages</li></a>
-                  <a onClick="skillsUnhide(2)"><li>Programs</li></a>
-                  <a onClick="jobUnhide()"><li>Job Experiences</li></a>
+                  <a onClick="skillsUnHide(0)"><li>Languages</li></a>
+                  <a onClick="skillsUnHide(1)"><li>Programming Languages</li></a>
+                  <a onClick="skillsUnHide(2)"><li>Programs</li></a>
+                  <a onClick="jobUnHide()"><li>Job Experiences</li></a>
                </ul>
             </div>
          </div>
@@ -170,7 +180,7 @@
             <div class="job-exp">
                <a class="back hide" onClick="backButtonFunction()"><p>&#8592; Back</p></a>
                <!--Templating by Handlebars to display job experiences-->
-               <div id="unclickedTemplateFill"></div>
+               <div id="job-Template-Fill"></div>
                <a id="prev" class="hide"><h2>&#10094;</h2></a>
                <a id="next"><h2>&#10095;</h2></a>
                <div id="dot-container" class="center"></div>
@@ -208,13 +218,21 @@
 
          <div class="social-media-logo-container">
             <span class="social-media-logo">
-               <a href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/" target="_blank">
-                  <img src="images/LinkedIn-Logo-white.png" alt="Linkedin" height="40" width="40" />
+               <a
+                  href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
+                  <img src="images/LinkedIn-Logo-white.png" alt="LinkedIn" height="40" width="40" />
                </a>
             </span>
 
             <span class="social-media-logo">
-               <a href="https://github.com/dunlike2big/zj-tan.git" target="_blank">
+               <a
+                  href="https://github.com/dunlike2big/zj-tan.git"
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
                   <img src="images/github-logo-white.png" alt="Github" height="40" width="40" />
                </a>
             </span>

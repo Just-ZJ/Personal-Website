@@ -2,8 +2,8 @@
 /********************************Start of initializing variables to be used********************************/
 const jobExpContainer = document.querySelector(".job-exp");
 const jobExp = document.getElementsByClassName("job-exp-slide");
-const container = document.getElementById("unclickedTemplateFill");
-const jobDescription = document.getElementsByClassName("job-descript");
+const container = document.getElementById("job-Template-Fill");
+const jobDescription = document.getElementsByClassName("job-description");
 
 const backButton = document.querySelector(".back");
 const prevButton = document.getElementById("prev");
@@ -15,12 +15,12 @@ const hidden = document.getElementsByClassName("hide");
 let currentSlide = 0;
 let slideExpanded = false;
 //function for clicking each skills
-function skillsUnhide(n) {
+function skillsUnHide(n) {
    hideAll();
    hidden[n].style.display = "block";
 }
 //function for clicking job experience
-function jobUnhide() {
+function jobUnHide() {
    hideAll();
    jobExpContainer.style.display = "block";
 }
@@ -34,8 +34,8 @@ function hideAll() {
 
 /********************************End of initializing variables to be used********************************/
 
-loadInitalDisplay();
-function loadInitalDisplay() {
+loadInitialDisplay();
+function loadInitialDisplay() {
    createDots();
    //hides all job experiences except for the first 4
    for (let i = 4; i < jobExp.length; i++) {
@@ -73,13 +73,13 @@ function jobSlideExpand(n) {
    }
    //changes grid layout to 1x1
    changeGridLayout(container, 1);
-   //unhide nth job experience
+   //un-hide nth job experience
    jobExp[n].style.display = "grid";
    //removes the blurred gray overlay
    jobExp[n].style.pointerEvents = "none";
    //
    jobDescription[n].classList.remove("hide");
-   //unhide back button
+   //un-hide back button
    backButton.classList.remove("hide");
 }
 
@@ -102,7 +102,7 @@ function showSlide(start, end) {
       //shows the next 4 job experiences
       for (let i = start; i <= end; i++) {
          //to ensure that jobExp[i] exists
-         if (!(i >= jobExp.length)) {
+         if (i < jobExp.length) {
             jobExp[i].style.display = "grid";
          }
       }
@@ -155,7 +155,7 @@ function backButtonFunction() {
  * Displays or hides the previous and next buttons accordingly.
  * If it is at the first slide, hide previous button.
  * If it is at the last slide, hide next button.
- * If it is at neither the first/last slide, both buttons whould be shown
+ * If it is at neither the first/last slide, both buttons would be shown
  *
  *
  * @param index
@@ -199,8 +199,6 @@ function displayPrevNextButtons(index) {
  * Minus 4 to currentSlide each time as 4 job experiences are shown on each slide.
  */
 function prevSlide() {
-   let start;
-   let end;
    if (!slideExpanded) {
       let slideNumEnd;
       if (currentSlide - 4 <= 0) {
@@ -298,7 +296,7 @@ function createDots() {
       dotElement.className = "dot";
       dotsContainer.appendChild(dotElement);
    }
-   //sets the first dot as active. this is for the inital display
+   //sets the first dot as active. this is for the initial display
    dotsContainer.children[0].classList.add("active");
    // onclick events for each of the dots
    for (let i = 0; i < dotsContainer.childElementCount; i++) {
