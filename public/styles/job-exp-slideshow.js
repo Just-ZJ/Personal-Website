@@ -1,16 +1,16 @@
 // JavaScript Document
 /********************************Start of initializing variables to be used********************************/
-const jobExpContainer = document.querySelector(".job-exp");
+const jobContainer = document.getElementById("job-exp");
 const jobExp = document.getElementsByClassName("job-exp-slide");
-const container = document.getElementById("job-Template-Fill");
+const jobTemplate = document.getElementById("job-Template-Fill");
 const jobDescription = document.getElementsByClassName("job-description");
 
 const backButton = document.querySelector(".back");
-const prevButton = document.getElementById("prev");
-const nextButton = document.getElementById("next");
+const prevJobButton = document.getElementById("job-prev-button");
+const nextJobButton = document.getElementById("job-next-button");
 
 const dots = document.getElementsByClassName("dot");
-const dotsContainer = document.getElementById("dot-container");
+const dotsContainer = document.getElementById("job-dot-container");
 const hidden = document.getElementsByClassName("hide");
 let currentSlide = 0;
 let slideExpanded = false;
@@ -22,14 +22,14 @@ function skillsUnHide(n) {
 //function for clicking job experience
 function jobUnHide() {
    hideAll();
-   jobExpContainer.style.display = "block";
+   jobContainer.style.display = "block";
 }
 function hideAll() {
    let i;
    for (i = 0; i < 3; i++) {
       hidden[i].style.display = "none";
    }
-   jobExpContainer.style.display = "none";
+   jobContainer.style.display = "none";
 }
 
 /********************************End of initializing variables to be used********************************/
@@ -42,17 +42,17 @@ function loadInitialDisplay() {
       jobExp[i].style.display = "none";
    }
    // onclick events for each of the jobExp
-   for (let i = 0; i < container.childElementCount; i++) {
-      container.children[i].onclick = function () {
+   for (let i = 0; i < jobTemplate.childElementCount; i++) {
+      jobTemplate.children[i].onclick = function () {
          jobSlideExpand(i);
          createDots();
          setActiveDots(i);
          displayPrevNextButtons(i);
       };
    }
-   // eventListeners for the prevButton & nextButton
-   prevButton.addEventListener("click", prevSlide);
-   nextButton.addEventListener("click", nextSlide);
+   // eventListeners for the prevJobButton & nextJobButton
+   prevJobButton.addEventListener("click", prevSlide);
+   nextJobButton.addEventListener("click", nextSlide);
 }
 
 /********************************Start of functions for displaying job experiences********************************/
@@ -72,7 +72,7 @@ function jobSlideExpand(n) {
       jobExp[i].style.display = "none";
    }
    //changes grid layout to 1x1
-   changeGridLayout(container, 1);
+   changeGridLayout(jobTemplate, 1);
    //un-hide nth job experience
    jobExp[n].style.display = "grid";
    //removes the blurred gray overlay
@@ -143,7 +143,7 @@ function backButtonFunction() {
       jobExp[i].style.pointerEvents = "";
    }
    createDots();
-   changeGridLayout(container, 2);
+   changeGridLayout(jobTemplate, 2);
    displayPrevNextButtons(currentSlide);
    // to show 4 job experiences in 1 slide
    showSlide(currentSlide, currentSlide + 3);
@@ -176,20 +176,20 @@ function displayPrevNextButtons(index) {
    }
    if (index === 0) {
       // this is for 2x2 & 1x1 grid display.
-      prevButton.classList.add("hide");
-      nextButton.classList.remove("hide");
+      prevJobButton.classList.add("hide");
+      nextJobButton.classList.remove("hide");
    } else if (index === length - 1 && slideExpanded) {
       // this is for 1x1 grid display.
-      prevButton.classList.remove("hide");
-      nextButton.classList.add("hide");
+      prevJobButton.classList.remove("hide");
+      nextJobButton.classList.add("hide");
    } else if (!slideExpanded && range <= index && index <= length) {
       // range<=index<= length. This is for 2x2 grid display.
-      prevButton.classList.remove("hide");
-      nextButton.classList.add("hide");
+      prevJobButton.classList.remove("hide");
+      nextJobButton.classList.add("hide");
    } else {
       // if index is at neither ends, both buttons should be shown
-      prevButton.classList.remove("hide");
-      nextButton.classList.remove("hide");
+      prevJobButton.classList.remove("hide");
+      nextJobButton.classList.remove("hide");
    }
 }
 

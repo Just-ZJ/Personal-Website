@@ -2,7 +2,7 @@
 /* CSS Document */
 
 /******************************Start of slideshow******************************/
-.job-exp {
+.slide-show-container {
    width: 55%;
    height: 85vh;
    margin: 30px 50px;
@@ -49,8 +49,8 @@
 /******************************End of slideshow******************************/
 
 /******************************Start of previous, next, back buttons******************************/
-#prev,
-#next {
+.prev,
+.next {
    position: absolute;
    line-height: 85vh;
    top: 0;
@@ -59,7 +59,7 @@
    user-select: none; /*disables selection of any text/cannot highlight*/
    cursor: pointer; /*changes cursor shape*/
 }
-#prev {
+.prev {
    margin-left: -30px;
    left: 0;
    border-top-left-radius: 15px;
@@ -67,7 +67,7 @@
    border-top-right-radius: 5px;
    border-bottom-right-radius: 5px;
 }
-#next {
+.next {
    margin-right: -30px;
    right: 0;
    border-top-right-radius: 15px;
@@ -75,8 +75,8 @@
    border-top-left-radius: 5px;
    border-bottom-left-radius: 5px;
 }
-#prev:hover,
-#next:hover {
+.prev:hover,
+.next:hover {
    background-color: antiquewhite;
    opacity: 0.5;
    color: black;
@@ -99,7 +99,7 @@
 /******************************End of previous, next, back buttons******************************/
 
 /******************************Start of dot buttons******************************/
-#dot-container {
+.dot-container {
    height: 13px;
    width: 100%;
    position: absolute;
