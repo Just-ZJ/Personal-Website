@@ -47,6 +47,9 @@ class SlideShow {
       this.#currentSlide = num;
    }
 
+   get container() {
+      return this.#container;
+   }
    get back() {
       return this.#back;
    }
@@ -220,9 +223,9 @@ class SlideShow {
    /**
     * Decides whether to show 4 job experiences in 1 slide or 1 job experience in 1 slide.
     *
-    * @param {*} start
+    * @param start
     *       index of the first job experience that should be shown
-    * @param {*} end
+    * @param end
     *       index of the last job experience that should be shown (inclusive)
     */
    showSlide(start, end) {
@@ -275,21 +278,21 @@ class SlideShow {
          slideExpanded = this.#slideExpanded,
          range,
          numOfFours = Math.floor(slideLength / 4);
-      if (numOfFours >= 1) {
-         range = numOfFours * 4;
-      }
       /**
        * Since currentSlide is passed into the argument of displayPrevNextButtons in prevSlide & nextSlide & backButtonFunction
        * and currentSlide increases in multiples of 4, numOfFours would be the maximum number of 4s that can be in length.
        * Thus, the slides between range to length would be the last 4.
        */
+      if (numOfFours >= 1) {
+         range = numOfFours * 4;
+      }
       if (index == 0) {
          //for first slide in 2x2 & 1x1.
          this.#previous.classList.add("non-visible");
          this.#next.classList.remove("non-visible");
       } else if (
          (slideExpanded && index == slideLength - 1) ||
-         (slideExpanded && range <= index && index <= slideLength)
+         (!slideExpanded && range <= index && index <= slideLength)
       ) {
          //for last slide in 1x1 & 2x2
          this.#previous.classList.remove("non-visible");
@@ -310,22 +313,21 @@ class SlideShow {
     *
     */
    createDots() {
-      let slidesLength = this.#slides.length,
-         slideExpanded = this.#slideExpanded; //for 1x1
+      let slideLength = this.#slides.length; //for 1x1
       /*
        * This conditional statement is for 2x2.
        * Since each slide has 4 job experiences, any remainder would need an extra dot for the slide.
        */
-      if (!slideExpanded) {
-         let remainder = slidesLength % 4;
-         slidesLength = Math.floor(slidesLength / 4);
+      if (!this.#slideExpanded) {
+         let remainder = slideLength % 4;
+         slideLength = Math.floor(slideLength / 4);
          if (remainder > 0) {
-            slidesLength += 1;
+            slideLength += 1;
          }
       }
       //clears all the dots each time and create again.
       this.#dotContainer.innerHTML = "";
-      for (let i = 0; i < slidesLength; i++) {
+      for (let i = 0; i < slideLength; i++) {
          const dotElement = document.createElement("span");
          dotElement.className = "dot";
          this.#dotContainer.appendChild(dotElement);
@@ -333,7 +335,7 @@ class SlideShow {
       // onclick events for each of the dots
       for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
          this.#dotContainer.children[i].onclick = () => {
-            if (!slideExpanded) {
+            if (!this.#slideExpanded) {
                this.showSlide(i * 4, i * 4 + 3); //show 2x2 slides
             } else {
                this.jobSlideExpand(i); //show 1x1 slides

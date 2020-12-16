@@ -9,20 +9,30 @@ project.loadInitialDisplay();
 
 const hidden = document.getElementsByClassName("hide");
 
-//function for clicking each skills
-function skillsUnHide(n) {
+document.getElementById("language-chart").addEventListener("click", () => {
    hideAll();
-   hidden[n].style.display = "block";
-}
-//function for clicking job experience
-function jobUnHide() {
+   hidden[0].style.display = "block";
+});
+
+document.getElementById("programming-chart").addEventListener("click", () => {
    hideAll();
-   jobContainer.style.display = "block";
-}
+   hidden[1].style.display = "block";
+});
+
+document.getElementById("programs-chart").addEventListener("click", () => {
+   hideAll();
+   hidden[2].style.display = "block";
+});
+
+document.getElementById("job-side-menu").addEventListener("click", () => {
+   hideAll();
+   job.container.style.display = "block";
+});
+
 function hideAll() {
    let i;
    for (i = 0; i < 3; i++) {
       hidden[i].style.display = "none";
    }
-   jobContainer.style.display = "none";
+   job.container.style.display = "none";
 }

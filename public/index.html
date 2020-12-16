@@ -204,10 +204,10 @@
          <div class="left-container2">
             <div class="sideNavBar">
                <ul>
-                  <a onClick="skillsUnHide(0)"><li>Languages</li></a>
-                  <a onClick="skillsUnHide(1)"><li>Programming Languages</li></a>
-                  <a onClick="skillsUnHide(2)"><li>Programs</li></a>
-                  <a onClick="jobUnHide()"><li>Job Experiences</li></a>
+                  <a id="language-chart"><li>Languages</li></a>
+                  <a id="programming-chart"><li>Programming Languages</li></a>
+                  <a id="programs-chart"><li>Programs</li></a>
+                  <a id="job-side-menu"><li>Job Experiences</li></a>
                </ul>
             </div>
          </div>
@@ -218,6 +218,7 @@
                <div class="hide"><canvas id="progLangChart"></canvas></div>
                <div class="hide"><canvas id="programsExp"></canvas></div>
             </div>
+
             <div id="job-exp" class="slide-show-container">
                <a id="job-back" class="back hide"><p>&#8592; Back</p></a>
                <!--Template by Handlebars to display job experiences-->
