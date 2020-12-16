@@ -11,7 +11,7 @@
 
 /*End of Last Page*/
 
-.personal-project-container {
+/* .personal-project-container {
    margin: 0 5%;
    display: grid;
    grid-template-columns: repeat(3, 1fr);
@@ -27,4 +27,4 @@
 }
 .each-project:hover {
    filter: brightness(1.25);
-}
+} */

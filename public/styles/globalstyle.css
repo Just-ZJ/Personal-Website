@@ -44,7 +44,7 @@ h3 {
 
 /*Start of page formatting*/
 .page {
-   height: 100vh; /*100vh = 100% of viewport height*/
+   height: 104vh; /*100vh = 100% of viewport height*/
    width: 100%;
    position: relative;
    margin: 0;
@@ -53,7 +53,7 @@ h3 {
 }
 main {
    height: 100%;
-   width: inherit;
+   width: 100%;
    position: absolute;
    z-index: 1;
 }
@@ -196,7 +196,7 @@ footer {
    overflow: hidden;
    /*Makes footer stay at bottom of last page*/
    position: absolute;
-   bottom: -17px;
+   bottom: -110px;
    z-index: 1;
 }
 .copy-right {

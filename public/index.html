@@ -24,24 +24,66 @@
       <script src="./styles/handlebars.min.js"></script>
       <script id="job-Template" type="text/x-handlebars-template">
          {{#each jobExperiences}}
-            <div class="job-exp-slide"">
+            <div id="job-exp-slide" class="individual-slide">
                <div class="center">
                   <img src={{this.image.src}} alt={{this.image.alt}} height="100" />
-                  <h3>{{this.location}}</h3>
-                  <h4>{{this.title}}</h4>
-                  <h4>{{this.duration}}</h4>
+                  <h3>
+                     {{this.location}}
+                  </h3>
+                  <h4>
+                     {{this.title}}
+                  </h4>
+                  <h4>
+                     {{this.duration}}
+                  </h4>
                </div>
                <div class="job-description center hide">
                   <ul>
                      {{#each jobDescription}}
-                     <li><p>{{this.description}}</p></li>
+                        <li>
+                           <p>
+                              {{this.description}}
+                           </p>
+                        </li>
                      {{/each}}
                   </ul>
                </div>
             </div>
          {{/each}}
       </script>
-      <script src="styles/job-exp-slideshow.js" async></script>
+
+      <script id="project-Template" type="text/x-handlebars-template">
+         {{#each jobExperiences}}
+            <div id="project-slide" class="individual-slide">
+               <div class="center">
+                  <img src={{this.image.src}} alt={{this.image.alt}} height="100" />
+                  <h3>
+                     {{this.location}}
+                  </h3>
+                  <h4>
+                     {{this.title}}
+                  </h4>
+                  <h4>
+                     {{this.duration}}
+                  </h4>
+               </div>
+               <div class="project-description center hide">
+                  <ul>
+                     {{#each jobDescription}}
+                        <li>
+                           <p>
+                              {{this.description}}
+                           </p>
+                        </li>
+                     {{/each}}
+                  </ul>
+               </div>
+            </div>
+         {{/each}}
+      </script>
+
+      <script type="module" src="styles/job-exp-slideshow.js" async></script>
+      <script type="module" src="styles/SlideShow-Class.js" async></script>
    </head>
 
    <body>
@@ -176,12 +218,11 @@
                <div class="hide"><canvas id="progLangChart"></canvas></div>
                <div class="hide"><canvas id="programsExp"></canvas></div>
             </div>
-
             <div id="job-exp" class="slide-show-container">
-               <a class="back hide" onClick="backButtonFunction()"><p>&#8592; Back</p></a>
+               <a id="job-back" class="back hide"><p>&#8592; Back</p></a>
                <!--Template by Handlebars to display job experiences-->
                <div id="job-Template-Fill"></div>
-               <a id="job-prev-button" class="prev hide"><h2>&#10094;</h2></a>
+               <a id="job-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
                <a id="job-next-button" class="next"><h2>&#10095;</h2></a>
                <div id="job-dot-container" class="dot-container center"></div>
             </div>
@@ -194,13 +235,13 @@
             <!--do a slide show here?-->
             <h2 class="lastPageTitle">Personal Projects</h2>
 
-            <div class="personal-project-container">
-               <div class="each-project"></div>
-               <div class="each-project"></div>
-               <div class="each-project"></div>
-               <div class="each-project"></div>
-               <div class="each-project"></div>
-               <div class="each-project"></div>
+            <div id="project" class="slide-show-container">
+               <a id="project-back" class="back hide"><p>&#8592; Back</p></a>
+               <!--Template by Handlebars to display job experiences-->
+               <div id="project-Template-Fill"></div>
+               <a id="project-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
+               <a id="project-next-button" class="next"><h2>&#10095;</h2></a>
+               <div id="project-dot-container" class="dot-container center"></div>
             </div>
          </main>
       </section>

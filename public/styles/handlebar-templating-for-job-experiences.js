@@ -1,6 +1,4 @@
 // JavaScript Document
-const source = document.getElementById("job-Template").innerHTML;
-const template = Handlebars.compile(source);
 const context = {
    jobExperiences: [
       {
@@ -136,7 +134,24 @@ const context = {
          ],
       },
    ],
+   project: [
+      
+   ],
 };
 
-const compiledHTML = template(context);
-document.getElementById("job-Template-Fill").innerHTML = compiledHTML;
+function fillJobTemplate(){
+   const jobSource = document.getElementById("job-Template").innerHTML;
+   const jobTemplate = Handlebars.compile(jobSource);
+   const compiledJob = jobTemplate(context);
+   document.getElementById("job-Template-Fill").innerHTML = compiledJob;
+}
+
+function fillProjectTemplate(){
+   const projectSource = document.getElementById("project-Template").innerHTML;
+   const projectTemplate = Handlebars.compile(projectSource);
+   const compiledProject = projectTemplate(context);
+   document.getElementById("project-Template-Fill").innerHTML = compiledProject;
+}
+
+fillJobTemplate();
+fillProjectTemplate();

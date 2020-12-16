@@ -3,15 +3,25 @@
 
 /******************************Start of slideshow******************************/
 .slide-show-container {
-   width: 55%;
    height: 85vh;
    margin: 30px 50px;
-   right: 0;
-   top: 44%;
    transform: translateY(-50%);
+}
+#job-exp {
+   top: 44%;
+   width: 55%;
+   right: 0;
    position: absolute;
 }
-#job-Template-Fill {
+#project {
+   top: 30%;
+   width: 80%;
+   margin: 30px auto;
+   position: relative;
+}
+
+#job-Template-Fill,
+#project-Template-Fill {
    height: 100%;
    width: 100%;
    /*grid layouts*/
@@ -20,21 +30,27 @@
    grid-template-rows: repeat(2, 1fr);
    grid-gap: 0.25em;
 }
-.job-exp-slide {
+
+#job-exp-slide {
+   background-color: #333;
+}
+#project-slide {
+}
+.individual-slide {
    height: 100%;
    min-height: 300px;
    border-radius: 15px;
-   background-color: #333; /**change to #333/
-	/*centers vertically in grid*/
+   /*centers vertically in grid*/
    display: grid;
    align-items: center;
 }
-.job-exp-slide:hover {
+.individual-slide:hover {
    transition: ease-in-out 0.5s;
    filter: blur(2px) brightness(1.5);
    user-select: none;
    cursor: pointer;
 }
+
 .job-description {
    height: 100%;
    width: 70%;
@@ -49,6 +65,9 @@
 /******************************End of slideshow******************************/
 
 /******************************Start of previous, next, back buttons******************************/
+.non-visible {
+   visibility: hidden;
+}
 .prev,
 .next {
    position: absolute;
@@ -78,19 +97,20 @@
 .prev:hover,
 .next:hover {
    background-color: antiquewhite;
-   opacity: 0.5;
+   opacity: 0.6;
    color: black;
-   transition: ease-in-out 0.5s;
+   filter: blur(0.5px);
 }
 .back {
    position: absolute;
-   padding: 8px 15px;
-   margin: 10px;
+   padding: 10px 17px;
+   margin: 20px 10px 10px;
    user-select: none;
    cursor: pointer;
-   font-size: 16;
+   font-size: 18;
 }
 .back:hover {
+   display: block;
    background-color: antiquewhite;
    transition: ease-in-out 0.5s;
    color: black;
