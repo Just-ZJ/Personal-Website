@@ -151,97 +151,69 @@ class SlideShow {
        * Decides whether or not to display the previous & next button based on the current slide.
        * If 1st slide, hide previous.
        * If last slide, hide next.
+       *
+       * Decides what slides to show by looking for the index of the dot that has the class "active".
        */
       this.#previous.addEventListener("click", () => {
-         if (!this.#slideExpanded) {
-            if (this.#twoBy2) {
-               /*
-                * For 2x2
-                */
-               let count;
-               for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
-                  if (this.#dotContainer.childNodes[i].className.includes("active")) {
-                     count = i - 1; //minus 1 to represent the index of the next dot that should be active
-                     this.#currentSlide = count * 4; //updates value of currentSlide;
+         let count;
+         for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
+            if (this.#dotContainer.childNodes[i].className.includes("active")) {
+               count = i - 1; //minus 1 to represent the index of the next dot that should be active
+               if (!this.#slideExpanded) {
+                  if (this.#twoBy2) {
+                     /*
+                      * For 2x2
+                      */
+                     this.#currentSlide = count * 4; //updates value of currentSlide for 2x2;
+                     this.showSlide(this.#currentSlide, this.#currentSlide + 3);
+                  } else {
+                     /*
+                      * For 2x1
+                      */
+                     this.#currentSlide = count * 2; //updates value of currentSlide for 2x1;
+                     this.showSlide(this.#currentSlide, this.#currentSlide + 1);
                   }
-               }
-               this.showSlide(this.#currentSlide, this.#currentSlide + 3);
-               this.setActiveDots(count);
-            } else {
-               /*
-                * For 2x1
-                */
-               let count;
-               for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
-                  if (this.#dotContainer.childNodes[i].className.includes("active")) {
-                     count = i - 1; //minus 1 to represent the index of the next dot that should be active
-                     this.#currentSlide = count * 2; //updates value of currentSlide;
-                  }
-               }
-               this.showSlide(this.#currentSlide, this.#currentSlide + 1);
-               this.setActiveDots(count);
-            }
-         } else {
-            let count;
-            /*
-             * For 1x1
-             * It looks for the dot that has class "active", then provide the index of it in dotContainer
-             */
-            for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
-               if (this.#dotContainer.childNodes[i].className.includes("active")) {
-                  count = i - 1; //minus 1 to represent the index of the next dot that should be active
+               } else {
+                  /*
+                   * For 1x1
+                   */
                   this.#currentSlide = Math.floor(count / 4) * 4; //updates value of currentSlide;
+                  this.showSlide(count, count);
                }
             }
-            this.showSlide(count, count);
-            this.setActiveDots(count);
          }
+         this.setActiveDots(count);
       });
 
       this.#next.addEventListener("click", () => {
-         if (!this.#slideExpanded) {
-            if (this.#twoBy2) {
-               /*
-                * For 2x2
-                */
-               let count;
-               for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
-                  if (this.#dotContainer.childNodes[i].className.includes("active")) {
-                     count = i + 1; //added 1 to represent the index of the next dot that should be active
-                     this.#currentSlide = count * 4; //updates value of currentSlide;
+         let count;
+         for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
+            if (this.#dotContainer.childNodes[i].className.includes("active")) {
+               count = i + 1; //added 1 to represent the index of the next dot that should be active
+               if (!this.#slideExpanded) {
+                  if (this.#twoBy2) {
+                     /*
+                      * For 2x2
+                      */
+                     this.#currentSlide = count * 4;
+                     this.showSlide(this.#currentSlide, this.#currentSlide + 3);
+                  } else {
+                     /*
+                      * For 2x1
+                      */
+                     this.#currentSlide = count * 2;
+                     this.showSlide(this.#currentSlide, this.#currentSlide + 1);
                   }
-               }
-               this.showSlide(this.#currentSlide, this.#currentSlide + 3);
-               this.setActiveDots(count);
-            } else {
-               /*
-                * For 2x1
-                */
-               let count;
-               for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
-                  if (this.#dotContainer.childNodes[i].className.includes("active")) {
-                     count = i + 1; //added 1 to represent the index of the next dot that should be active
-                     this.#currentSlide = count * 2; //updates value of currentSlide;
-                  }
-               }
-               this.showSlide(this.#currentSlide, this.#currentSlide + 1);
-               this.setActiveDots(count);
-            }
-         } else {
-            /*
-             * For 1x1
-             * It looks for the dot that has class "active", then provide the index of it in dotContainer
-             */
-            let count;
-            for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
-               if (this.#dotContainer.childNodes[i].className.includes("active")) {
-                  count = i + 1; // added 1 to represent the index of the next job exp that should be shown
-                  this.#currentSlide = Math.floor(count / 4) * 4; //updates value of currentSlide;
+               } else {
+                  /*
+                   * For 1x1
+                   */
+                  this.#currentSlide = Math.floor(count / 4) * 4;
+                  this.showSlide(count, count);
                }
             }
-            this.showSlide(count, count);
-            this.setActiveDots(count);
          }
+         this.setActiveDots(count);
       });
    }
    /********************************Start of functions for displaying slides********************************/
