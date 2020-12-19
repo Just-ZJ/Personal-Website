@@ -16,12 +16,12 @@
          src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"
          defer
       ></script>
-      <script src="styles/radar-chart.js" defer></script>
-      <script src="styles/page-nav-bar.js" defer></script>
+      <script src="javascript/radar-chart.js" defer></script>
+      <script src="javascript/page-nav-bar.js" defer></script>
 
       <!--Handlebars Template for Job Experiences-->
-      <script src="styles/handlebar-templating-for-job-experiences.js" async></script>
-      <script src="./styles/handlebars.min.js"></script>
+      <script src="javascript/handlebar-templating-for-job-experiences.js" async></script>
+      <script src="javascript/handlebars.min.js"></script>
       <script id="job-Template" type="text/x-handlebars-template">
          {{#each jobExperiences}}
             <div id="job-exp-slide" class="individual-slide">
@@ -51,25 +51,39 @@
             </div>
          {{/each}}
       </script>
-
+      <!-- height="100" -->
       <script id="project-Template" type="text/x-handlebars-template">
-         {{#each jobExperiences}}
+         {{#each project}}
             <div id="project-slide" class="individual-slide">
                <div class="center">
-                  <img src={{this.image.src}} alt={{this.image.alt}} height="100" />
-                  <h3>
-                     {{this.location}}
-                  </h3>
-                  <h4>
+                  <img class="project-image" src={{this.image.src}} alt={{this.image.alt}} />
+                  <h2>
                      {{this.title}}
-                  </h4>
+                  </h2>
+                  <div class="project-creators">
+                     <h4>
+                        <p>
+                           Created by:
+                        </p>
+                        <ul>
+                           {{#each creators}}
+                              <li>
+                                 <p>
+                                    {{this.name}}
+                                 </p>
+                              </li>
+                           {{/each}}
+                        </ul>
+                     </h4>
+                  </div>
+
                   <h4>
                      {{this.duration}}
                   </h4>
                </div>
                <div class="project-description center hide">
                   <ul>
-                     {{#each jobDescription}}
+                     {{#each projectDescription}}
                         <li>
                            <p>
                               {{this.description}}
@@ -82,8 +96,8 @@
          {{/each}}
       </script>
 
-      <script type="module" src="styles/job-exp-slideshow.js" async></script>
-      <script type="module" src="styles/SlideShow-Class.js" async></script>
+      <script type="module" src="javascript/job-exp-slideshow.js" async></script>
+      <script type="module" src="javascript/SlideShow-Class.js" async></script>
    </head>
 
    <body>
@@ -204,19 +218,21 @@
          <div class="left-container2">
             <div class="sideNavBar">
                <ul>
-                  <a id="language-chart"><li>Languages</li></a>
-                  <a id="programming-chart"><li>Programming Languages</li></a>
-                  <a id="programs-chart"><li>Programs</li></a>
-                  <a id="job-side-menu"><li>Job Experiences</li></a>
+                  <a id="menu-language-chart"><li>Languages</li></a>
+                  <a id="menu-programming-chart"><li>Programming Languages</li></a>
+                  <a id="menu-programs-chart"><li>Programs</li></a>
+                  <a id="menu-job"><li>Job Experiences</li></a>
                </ul>
             </div>
          </div>
 
          <main>
             <div class="radar-graph">
-               <div class="hide"><canvas id="languages"></canvas></div>
-               <div class="hide"><canvas id="progLangChart"></canvas></div>
-               <div class="hide"><canvas id="programsExp"></canvas></div>
+               <div id="language-chart" class="hide"><canvas id="languages"></canvas></div>
+               <div id="programming-chart" class="hide">
+                  <canvas id="progLangChart"></canvas>
+               </div>
+               <div id="programs-chart" class="hide"><canvas id="programsExp"></canvas></div>
             </div>
 
             <div id="job-exp" class="slide-show-container">
@@ -238,7 +254,7 @@
 
             <div id="project" class="slide-show-container">
                <a id="project-back" class="back hide"><p>&#8592; Back</p></a>
-               <!--Template by Handlebars to display job experiences-->
+               <!--Template by Handlebars to display projects-->
                <div id="project-Template-Fill"></div>
                <a id="project-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
                <a id="project-next-button" class="next"><h2>&#10095;</h2></a>
@@ -250,12 +266,6 @@
       <footer>
          <span class="copy-right">
             <p>&copy; Zheng Ji Tan, 2019 Last updated: 22 August 2020</p>
-            <!--there is a small gap between the bottom of page and footer. solved with -17px-->
-            <!--put email?
-			<h3>
-				<a href="mailto:tan.955@osu.edu" target="_top">Email: tan.955@osu.edu</a>
-			</h3>
-			-->
          </span>
 
          <div class="social-media-logo-container">
