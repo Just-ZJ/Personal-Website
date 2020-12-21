@@ -100,6 +100,7 @@ class SlideShow {
    loadInitialDisplay() {
       this.createDots();
       this.setActiveDots(0);
+      this.displayPrevNextButtons(this.#currentSlide);
       if (this.#gridRowOnLoad == 1) {
          this.showSlide(0, 1);
       }
@@ -310,12 +311,16 @@ class SlideShow {
             range = numOfTwos * 2;
          }
       }
-      if (index == 0) {
+      if (slideLength - 1 < 4) {
+         //not enough slides for next page
+         this.#previous.classList.add("non-visible");
+         this.#next.classList.add("non-visible");
+      } else if (index == 0) {
          //for first slide in 2x2 & 1x1.
          this.#previous.classList.add("non-visible");
          this.#next.classList.remove("non-visible");
       } else if (
-         (slideExpanded && index == slideLength - 1) ||
+         (slideExpanded && index >= slideLength - 1) ||
          (!slideExpanded && range <= index && index <= slideLength)
       ) {
          //for last slide in 1x1 & 2x2

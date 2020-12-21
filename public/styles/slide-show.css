@@ -53,11 +53,15 @@
 }
 /******************************Project Styles******************************/
 #project {
-   top: 30%;
+   top: 35%;
    width: 80%;
-   height: 80%;
-   margin: 30px auto;
+   height: 77%;
+   margin: 35px auto 0 auto;
    position: relative;
+}
+.project-title {
+   margin-top: -50px;
+   margin-bottom: 30px;
 }
 #project-Template-Fill {
    height: 100%;
@@ -69,15 +73,15 @@
    grid-gap: 0.25em;
 }
 #project-slide {
-   min-height: 500px;
+   /* min-height: 100%; */
    background-color: teal;
 }
 .project-image {
-   height: 100px;
+   height: 280px;
    border-radius: 15px;
 }
 .project-creators {
-   margin-top: 10px;
+   margin-top: 35px;
    text-align: left;
 }
 .project-creators ul li {
@@ -141,15 +145,17 @@
 
 /******************************Start of dot buttons******************************/
 .dot-container {
-   height: 13px;
-   width: 100%;
-   position: absolute;
-   bottom: 0;
+   /* height: 30px; */
+   /* width: fit-content; */
+   position: relative;
+   border-radius: 100%;
+   margin: -25px auto auto auto;
+   /* background-color: brown; */
 }
 .dot {
    height: 13px;
    width: 13px;
-   margin: 0 2px;
+   margin: auto 2px;
    background-color: rgb(180, 179, 179);
    border-radius: 50%;
    display: inline-block;

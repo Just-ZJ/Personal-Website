@@ -19,9 +19,9 @@
       <script src="javascript/radar-chart.js" defer></script>
       <script src="javascript/page-nav-bar.js" defer></script>
 
-      <!--Handlebars Template for Job Experiences-->
-      <script src="javascript/handlebar-templating-for-job-experiences.js" async></script>
+      <script src="javascript/handlebar-templates.js" async></script>
       <script src="javascript/handlebars.min.js"></script>
+      <!--Handlebars Template for Job Experiences-->
       <script id="job-Template" type="text/x-handlebars-template">
          {{#each jobExperiences}}
             <div id="job-exp-slide" class="individual-slide">
@@ -51,35 +51,32 @@
             </div>
          {{/each}}
       </script>
-      <!-- height="100" -->
+
+      <!--Handlebars Template for Projects-->
       <script id="project-Template" type="text/x-handlebars-template">
          {{#each project}}
             <div id="project-slide" class="individual-slide">
                <div class="center">
+                  <div class="project-title">
+                     <h2>
+                        {{this.title}}
+                     </h2>
+                  </div>
                   <img class="project-image" src={{this.image.src}} alt={{this.image.alt}} />
-                  <h2>
-                     {{this.title}}
-                  </h2>
                   <div class="project-creators">
                      <h4>
-                        <p>
-                           Created by:
-                        </p>
-                        <ul>
-                           {{#each creators}}
-                              <li>
-                                 <p>
-                                    {{this.name}}
-                                 </p>
-                              </li>
-                           {{/each}}
-                        </ul>
+                        Created by:
                      </h4>
+                     <ul>
+                        {{#each creators}}
+                           <li>
+                              <p>
+                                 {{this.name}}
+                              </p>
+                           </li>
+                        {{/each}}
+                     </ul>
                   </div>
-
-                  <h4>
-                     {{this.duration}}
-                  </h4>
                </div>
                <div class="project-description center hide">
                   <ul>
