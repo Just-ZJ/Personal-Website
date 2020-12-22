@@ -7,6 +7,7 @@ class SlideShow {
    #gridColumnOnLoad;
    #gridRowOnLoad;
    #twoBy2 = true;
+   #enableHover;
 
    #container;
    #back;
@@ -19,7 +20,15 @@ class SlideShow {
    #slides;
    #description;
 
-   constructor(parentContainer, description, gridColumn, gridRow) {
+   /**
+    *
+    * @param {object} parentContainer
+    * @param {object} description
+    * @param {number} gridColumn - number of columns that the slide container should have on page load
+    * @param {number} gridRow - number of rows that the slide container should have on page load
+    * @param {boolean} enableHover - whether you can click the slides to expand
+    */
+   constructor(parentContainer, description, gridColumn, gridRow, enableHover) {
       this.#slideExpanded = false;
       this.#currentSlide = 0;
       this.#gridColumnOnLoad = gridColumn;
@@ -27,6 +36,7 @@ class SlideShow {
       if (this.#gridRowOnLoad == 1) {
          this.#twoBy2 = false;
       }
+      this.#enableHover = enableHover;
 
       this.#container = document.getElementById(parentContainer);
       this.#back = this.#container.children[0];
@@ -101,6 +111,7 @@ class SlideShow {
       this.createDots();
       this.setActiveDots(0);
       this.displayPrevNextButtons(this.#currentSlide);
+
       if (this.#gridRowOnLoad == 1) {
          this.showSlide(0, 1);
       }
@@ -113,11 +124,15 @@ class SlideShow {
          if (i >= 4) {
             this.#slides[i].style.display = "none";
          }
-         this.#slides[i].onclick = () => {
-            this.jobSlideExpand(i);
-            this.createDots();
-            this.setActiveDots(i);
-         };
+         if (this.#enableHover) {
+            this.#slides[i].onclick = () => {
+               this.jobSlideExpand(i);
+               this.createDots();
+               this.setActiveDots(i);
+            };
+         } else {
+            this.#slides[i].classList.remove("individual-slide-hover");
+         }
       }
 
       /**
@@ -157,8 +172,8 @@ class SlideShow {
        */
       this.#previous.addEventListener("click", () => {
          let count;
-         for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
-            if (this.#dotContainer.childNodes[i].className.includes("active")) {
+         for (let i = 0; i < this.#dots.length; i++) {
+            if (this.#dots[i].className.includes("active")) {
                count = i - 1; //minus 1 to represent the index of the next dot that should be active
                if (!this.#slideExpanded) {
                   if (this.#twoBy2) {
@@ -188,8 +203,8 @@ class SlideShow {
 
       this.#next.addEventListener("click", () => {
          let count;
-         for (let i = 0; i < this.#dotContainer.childElementCount; i++) {
-            if (this.#dotContainer.childNodes[i].className.includes("active")) {
+         for (let i = 0; i < this.#dots.length; i++) {
+            if (this.#dots[i].className.includes("active")) {
                count = i + 1; //added 1 to represent the index of the next dot that should be active
                if (!this.#slideExpanded) {
                   if (this.#twoBy2) {

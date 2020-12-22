@@ -15,7 +15,7 @@
    display: grid;
    align-items: center;
 }
-.individual-slide:hover {
+.individual-slide-hover:hover {
    transition: ease-in-out 0.5s;
    filter: blur(2px) brightness(1.5);
    user-select: none;

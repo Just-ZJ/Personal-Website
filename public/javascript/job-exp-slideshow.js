@@ -4,9 +4,9 @@
  * Create slideshow objects for job & projects
  */
 import { SlideShow } from "./SlideShow-Class.js";
-const job = new SlideShow("job-exp", "job-description", 2, 2);
+const job = new SlideShow("job-exp", "job-description", 2, 2, true);
 job.loadInitialDisplay();
-const project = new SlideShow("project", "project-description", 2, 1);
+const project = new SlideShow("project", "project-description", 2, 1, false);
 project.loadInitialDisplay();
 
 /*

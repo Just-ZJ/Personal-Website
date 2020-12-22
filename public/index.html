@@ -24,7 +24,7 @@
       <!--Handlebars Template for Job Experiences-->
       <script id="job-Template" type="text/x-handlebars-template">
          {{#each jobExperiences}}
-            <div id="job-exp-slide" class="individual-slide">
+            <div id="job-exp-slide" class="individual-slide individual-slide-hover">
                <div class="center">
                   <img src={{this.image.src}} alt={{this.image.alt}} height="100" />
                   <h3>
@@ -55,7 +55,7 @@
       <!--Handlebars Template for Projects-->
       <script id="project-Template" type="text/x-handlebars-template">
          {{#each project}}
-            <div id="project-slide" class="individual-slide">
+            <div id="project-slide" class="individual-slide individual-slide-hover">
                <div class="center">
                   <div class="project-title">
                      <h2>
@@ -79,7 +79,7 @@
                   </div>
                   <h4 class="project-link">
                      <a href="{{this.projectLink}}" target="_blank">
-                        Link for Flipper Code (Github)
+                        Link (Github)
                      </a>
                   </h4>
                </div>
