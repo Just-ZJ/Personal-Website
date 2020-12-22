@@ -141,16 +141,12 @@ const context = {
             alt: "Flipper GIF",
          },
          title: "Flipper",
+         projectDescription:
+            "A 2D shifting perspective game made in 40 hours using Unity for OSU HackOHI/O 2020",
          creators: [
             { name: "Zheng Ji Tan" },
             { name: "Matthew Anakin Crabtree" },
             { name: "Deakon Ziegler" },
-         ],
-         projectDescription: [
-            {
-               description:
-                  "Served as a peer-advisor for the Towers Community Council, and guiding its executive board members",
-            },
          ],
          projectLink: "https://github.com/OneMoreOneUp/Hack-Ohio-2020",
       },

@@ -63,6 +63,13 @@
                      </h2>
                   </div>
                   <img class="project-image" src={{this.image.src}} alt={{this.image.alt}} />
+
+                  <div class="project-description center">
+                     <p>
+                        {{this.projectDescription}}
+                     </p>
+                  </div>
+
                   <div class="project-creators">
                      <h4>
                         Created by:
@@ -77,22 +84,19 @@
                         {{/each}}
                      </ul>
                   </div>
-                  <h4 class="project-link">
+                  <div class="project-link">
                      <a href="{{this.projectLink}}" target="_blank">
-                        Link (Github)
+                        Project Link
+                        <div class="project-link-logo">
+                           <img
+                              src="images/github-logo-black.png"
+                              alt="Github"
+                              height="50"
+                              width="50"
+                           />
+                        </div>
                      </a>
-                  </h4>
-               </div>
-               <div class="project-description center hide">
-                  <ul>
-                     {{#each projectDescription}}
-                        <li>
-                           <p>
-                              {{this.description}}
-                           </p>
-                        </li>
-                     {{/each}}
-                  </ul>
+                  </div>
                </div>
             </div>
          {{/each}}
