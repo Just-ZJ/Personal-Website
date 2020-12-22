@@ -156,19 +156,22 @@ const context = {
       },
       {
          image: {
-            src: "",
-            alt: "",
+            src: "images/Flipper-GIF.gif",
+            alt: "Flipper GIF",
          },
-         title: "",
-         creators: [{ name: "Zheng Ji Tan" }],
-         duration: "August 2020 – Current",
+         title: "Flipper",
+         creators: [
+            { name: "Zheng Ji Tan" },
+            { name: "Matthew Anakin Crabtree" },
+            { name: "Deakon Ziegler" },
+         ],
          projectDescription: [
             {
                description:
                   "Served as a peer-advisor for the Towers Community Council, and guiding its executive board members",
             },
          ],
-         projectLink: "",
+         projectLink: "https://github.com/OneMoreOneUp/Hack-Ohio-2020",
       },
    ],
 };

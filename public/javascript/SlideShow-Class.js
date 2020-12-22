@@ -296,22 +296,13 @@ class SlideShow {
    displayPrevNextButtons(index) {
       let slideLength = this.#slides.length,
          slideExpanded = this.#slideExpanded,
-         range,
-         numOfFours = Math.floor(slideLength / 4),
-         numOfTwos = Math.floor(slideLength / 2);
+         twoBy2 = this.#twoBy2;
       /**
        * Since currentSlide is passed into the argument of displayPrevNextButtons in prevSlide & nextSlide & backButtonFunction
        * and currentSlide increases in multiples of 4, numOfFours would be the maximum number of 4s that can be in length.
        * Thus, the slides between range to length would be the last 4.
        */
-      if (numOfFours >= 1) {
-         if (this.#twoBy2) {
-            range = numOfFours * 4;
-         } else {
-            range = numOfTwos * 2;
-         }
-      }
-      if (slideLength - 1 < 4) {
+      if ((!twoBy2 && slideLength - 1 <= 2) || (twoBy2 && slideLength - 1 <= 4)) {
          //not enough slides for next page
          this.#previous.classList.add("non-visible");
          this.#next.classList.add("non-visible");
@@ -321,7 +312,8 @@ class SlideShow {
          this.#next.classList.remove("non-visible");
       } else if (
          (slideExpanded && index >= slideLength - 1) ||
-         (!slideExpanded && range <= index && index <= slideLength)
+         (!slideExpanded &&
+            ((!twoBy2 && index >= slideLength - 2) || (twoBy2 && index >= slideLength - 4)))
       ) {
          //for last slide in 1x1 & 2x2
          this.#previous.classList.remove("non-visible");

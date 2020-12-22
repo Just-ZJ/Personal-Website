@@ -87,6 +87,10 @@
 .project-creators ul li {
    list-style: square;
 }
+#project-prev-button,
+#project-next-button {
+   line-height: 80vh;
+}
 /******************************End of slideshow******************************/
 
 /******************************Start of previous, next, back buttons******************************/
