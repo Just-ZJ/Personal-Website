@@ -16,6 +16,12 @@
 #firstPage h3 {
    font-size: 1.25rem;
 }
+.resume-pic {
+   max-height: 250px;
+   /* max-width: 250px; */
+   /* height: 250px; */
+   width: auto;
+}
 .profile-description {
    padding-top: 10px;
    line-height: 2.3rem;
