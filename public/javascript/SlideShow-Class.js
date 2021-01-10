@@ -117,13 +117,9 @@ class SlideShow {
       }
 
       /**
-       * Hides all slides except for the first 4.
        * Add onclick events for each slides.
        */
       for (let i = 0; i < this.#slides.length; i++) {
-         if (i >= 4) {
-            this.#slides[i].style.display = "none";
-         }
          if (this.#enableHover) {
             this.#slides[i].onclick = () => {
                this.jobSlideExpand(i);
