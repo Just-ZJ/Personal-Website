@@ -1,35 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-   <!-- To solve ...firebase.ps1 cannot be loaded because running scripts is disabled on this system:
-         Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser 
-         To update Firebase: firebase deploy
-      -->
-   <!--Image Compression: https://compressor.io/
-          PDF Compressor: https://pdfcompressor.com/
-      -->
-
    <head>
       <title>ZJ Personal Portfolio</title>
-      <meta name="author" content="Zheng Ji Tan" />
-      <!-- Required meta tags for Bootstrap -->
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta content="text/html; charset=utf-8" />
 
-      <!--**************************************** Bootstrap v5.0.0 ****************************************-->
-      <link
-         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-         rel="stylesheet"
-         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-         crossorigin="anonymous"
-      />
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script
-         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-         crossorigin="anonymous"
-      ></script>
-
-      <!--******************************************* Custom CSS *******************************************-->
+      <!--links css files-->
       <link rel="stylesheet" type="text/css" href="styles/globalstyle.css" />
       <link rel="stylesheet" type="text/css" href="styles/firstPagestyles.css" />
       <link rel="stylesheet" type="text/css" href="styles/secondPagestyles.css" />
@@ -40,139 +15,70 @@
          src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"
          defer
       ></script>
-      <!-- Handlebar JS -->
-      <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+      <script src="javascript/radar-chart.js" defer></script>
+      <script src="javascript/page-nav-bar.js" defer></script>
 
-      <!--******************************************* Custom JS *******************************************-->
-      <!-- <script src="javascript/radar-chart.js" defer></script> -->
-      <!-- <script src="javascript/page-nav-bar.js" defer></script> -->
-      <script src="javascript/nav.js" defer></script>
       <script src="javascript/handlebar-templates.js" async></script>
 
       <!--Handlebars Template for Job Experiences-->
       <script id="job-Template" type="text/x-handlebars-template">
-         <!-- Start of Bootstrap Carousel Content -->
-         <div class="carousel-inner center">
-            {{#each jobExperiences}}
-            <!-- Start of EACH Bootstrap Carousel item -->
-               {{#if hide}}
-                  <div class="container-fluid carousel-item ">
-               {{else}}
-                  <div class="container-fluid carousel-item active">
-               {{/if}}
-                  <!-- Start of Modal Header -->
-                  <div class="modal-header remove-padding customize-modal-header">
-                     <div class="row w-100">
-                        <!-- company logo -->
-                        <div class="col-sm-12 col-lg-5 offset-lg-1">
-                           <img
-                              src={{this.image.src}}
-                              class="d-block company-logo rounded img-fluid center"
-                              alt={{this.image.alt}}
-                           />
-                        </div>
-                        <!-- location + title + duration -->
-                        <div class="col-sm-12 col-lg-5 center">
-                           <div class="d-none d-md-block">
-                              <h5>
-                                 {{this.location}}
-                              </h5>
-                              <p>
-                                 {{this.title}}
-                                 <br />
-                                 {{this.duration}}
-                              </p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- End of Modal Header -->
-
-                  <!-- Start of Modal Body -->
-                  <div class="modal-body ">
-                     <!-- job description -->
-                     <div class="row carousel-description  center">
-                        <div class="col-sm-8 offset-sm-2 tryout " >
-                           <ul>
-                              {{#each jobDescription}}
-                                 <li>
-                                    <p>
-                                       {{this.description}}
-                                    </p>
-                                 </li>
-                              {{/each}}
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- End of Modal Body -->
+         {{#each jobExperiences}}
+            <div id="job-exp-slide" class="individual-slide individual-slide-hover">
+               <div class="center">
+                  <img src={{this.image.src}} alt={{this.image.alt}} height="100" />
+                  <h3>
+                     {{this.location}}
+                  </h3>
+                  <h4>
+                     {{this.title}}
+                  </h4>
+                  <h4>
+                     {{this.duration}}
+                  </h4>
                </div>
-            <!-- End of EACH Bootstrap Carousel item -->
-            {{/each}}
-         </div>
-         <!-- End of Bootstrap Carousel Content -->
-
-         <!-- Start of Bootstrap modal-footer + Carousel Indicators - job experiences -->
-         <ol class="carousel-indicators modal-footer">
-            {{#each jobExperiences}}
-                  <li
-                     data-bs-target="#carouselJobExperiences"
-                     data-bs-slide-to={{this.slideNo}}
-               {{#unless hide}}
-                     class="active"
-               {{/unless}}
-                  ></li>
-            {{/each}}
-         </ol>
-         <!-- End of Bootstrap modal-footer +  Carousel Indicators - job experiences -->
-
-         <!-- Start of Bootstrap Carousel Previous & Next Buttons - job experiences -->
-         <a
-            class="carousel-control-prev"
-            href="#carouselJobExperiences"
-            role="button"
-            data-bs-slide="prev"
-         >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-         </a>
-         <a
-            class="carousel-control-next"
-            href="#carouselJobExperiences"
-            role="button"
-            data-bs-slide="next"
-         >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-         </a>
-         <!-- End of Bootstrap Carousel Previous & Next Buttons - job experiences -->
+               <div class="job-description center hide">
+                  <ul>
+                     {{#each jobDescription}}
+                        <li>
+                           <p>
+                              {{this.description}}
+                           </p>
+                        </li>
+                     {{/each}}
+                  </ul>
+               </div>
+            </div>
+         {{/each}}
       </script>
 
       <!--Handlebars Template for Projects-->
       <script id="project-Template" type="text/x-handlebars-template">
          {{#each project}}
-            {{#if hide}}
-               <div id="project-slide" class="individual-slide individual-slide-hover" style="display: none;">
-            {{else}}
-               <div id="project-slide" class="individual-slide individual-slide-hover">
-            {{/if}}
-                  <div class="center">
-                     <div class="project-title">
-                     <h2>{{this.title}}</h2>
+            <div id="project-slide" class="individual-slide individual-slide-hover">
+               <div class="center">
+                  <div class="project-title">
+                     <h2>
+                        {{this.title}}
+                     </h2>
                   </div>
-
                   <img class="project-image" src={{this.image.src}} alt={{this.image.alt}} />
 
                   <div class="project-description center">
-                     <p>{{this.projectDescription}}</p>
+                     <p>
+                        {{this.projectDescription}}
+                     </p>
                   </div>
 
                   <div class="project-creators">
-                     <h4>Created by:</h4>
+                     <h4>
+                        Created by:
+                     </h4>
                      <ul>
                         {{#each creators}}
                            <li>
-                              <p>{{this.name}}</p>
+                              <p>
+                                 {{this.name}}
+                              </p>
                            </li>
                         {{/each}}
                      </ul>
@@ -195,244 +101,199 @@
          {{/each}}
       </script>
 
-      <!-- <script type="module" src="javascript/slideshow.js" async></script> -->
+      <script type="module" src="javascript/job-exp-slideshow.js" async></script>
       <script type="module" src="javascript/SlideShow-Class.js" async></script>
    </head>
 
-   <!--***************************************************************************************************************
-   *************************************************- Start of Body **************************************************
-   ***************************************************************************************************************-->
    <body>
-      <!--***************************************************************************************************************
-      ************************************************* Start of Header *************************************************
-      ****************************************************************************************************************-->
-      <header class="fixed-top">
-         <img class="zj-logo" src="images/zj-logo.png" alt="" />
-         <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-               <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navBar3Lines"
-                  aria-controls="navBar3Lines"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-               >
-                  <span class="navbar-toggler-icon"></span>
-               </button>
-               <div class="collapse navbar-collapse" id="navBar3Lines">
-                  <div class="navbar-nav me-auto mb-2 mb-lg-0">
-                     <a class="nav-item nav-link active" aria-current="page" href="#firstPage">
-                        <h5>Contact</h5>
-                     </a>
-                     <a class="nav-item nav-link" href="#secondPage"><h5>Experiences</h5></a>
-                     <a class="nav-item nav-link" href="#lastPage"><h5>Personal Projects</h5></a>
-                     <a class="nav-item nav-link" href="ZhengJi_Resume.pdf" download>
-                        <h5>
-                           Resume
-                           <img
-                              id="download-icon"
-                              src="images/download-icon.png"
-                              alt="Download Icon"
-                           />
-                        </h5>
+      <header>
+         <nav id="page-navigation-menu">
+            <div id="bar-menu-container">
+               <div class="bar-menu-nav"></div>
+               <div class="bar-menu-nav"></div>
+               <div class="bar-menu-nav"></div>
+            </div>
+
+            <div id="nav-menu-container">
+               <ul>
+                  <div id="nav-menu">
+                     <li>
+                        <a href="#firstPage">
+                           <h2>Contact</h2>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#secondPage">
+                           <h2>Experiences</h2>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#lastPage">
+                           <h2>Personal Projects</h2>
+                        </a>
+                     </li>
+                     <a href="ZhengJi_Resume.pdf" download>
+                        <div id="download-icon-container">
+                           <li>
+                              <h2>Resume &nbsp;</h2>
+                           </li>
+                           <li>
+                              <img
+                                 id="download-icon"
+                                 src="images/download-icon.png"
+                                 alt="Download Icon"
+                              />
+                              <img
+                                 id="download-icon-hover"
+                                 src="images/download-icon-hover.png"
+                                 alt="Download Icon Hover"
+                              />
+                           </li>
+                        </div>
                      </a>
                   </div>
                </div>
             </div>
          </nav>
-      </header> -->
-      <!--***************************************************************************************************************
-      ************************************************** End of Header **************************************************
-      ****************************************************************************************************************-->
+      </header>
 
-      <main>
-         <!--First Page: Contact/About-->
-         <section class="page" id="firstPage">
-            <div class="main-body container-fluid">
-               <div class="row align-items-center">
-                  <!-- left column(profile pic + name) -->
-                  <div class="col-12 col-sm-12 col-xl-4 center">
-                     <img
-                        class="resume-pic img-fluid center"
-                        src="images/resume-pic.png"
-                        alt="Profile Pic"
-                     />
-                     <h1>Zheng Ji <span class="highlight">Tan</span></h1>
-                  </div>
-                  <!-- right column -->
-                  <div class="col-12 col-sm-12 col-xl-8">
-                     <!-- 1st nested row in right column -->
-                     <div class="row profile-description center">
-                        <h5>
-                           2<sup>nd</sup> Year Student <br />
-                           Expected Graduation: May 2023 <br />
-                           B.S. in Computer Science &amp; Engineering <br />
-                           The Ohio State University, Columbus, Ohio
-                        </h5>
-                     </div>
-                     <!-- 2nd nested row in right column -->
-                     <div class="row social-media-container">
-                        <div class="center">
-                           <div class="social-media-logo">
-                              <a
-                                 href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
-                                 target="_blank"
-                                 rel="noopener noreferrer"
-                              >
-                                 <img
-                                    src="images/LinkedIn-Logo-black.png"
-                                    alt="LinkedIn"
-                                    height="50"
-                                    width="50"
-                                 />
-                              </a>
-                           </div>
-                           <div class="social-media-logo">
-                              <a
-                                 href="https://github.com/Just-ZJ?tab=repositories"
-                                 target="_blank"
-                                 rel="noopener noreferrer"
-                              >
-                                 <img
-                                    src="images/github-logo-black.png"
-                                    alt="Github"
-                                    height="50"
-                                    width="50"
-                                 />
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- 3rd nested row in right column -->
-                     <div class="row contact-info center">
-                        <h5>
-                           <a href="mailto:tanzhengji@yahoo.com" target="_top">
-                              Email: tanzhengji@yahoo.com
-                           </a>
-                        </h5>
-                     </div>
-                  </div>
+      <!--First Page: Contact/About-->
+      <section class="page" id="firstPage">
+         <main>
+            <div class="left-container1">
+               <div class="center">
+                  <img src="images/resume-pic.png" alt="Profile Pic" height="200" width="200" />
+               </div>
+
+               <div class="profile-description center">
+                  <h1>Zheng Ji <span class="highlight">Tan</span></h1>
+                  <h3>
+                     2<sup>nd</sup> Year Student <br />
+                     Expected Graduation: May 2023 <br />
+                     Bachelors of Science in Computer Science &amp; Engineering <br />
+                     Ohio State University, Columbus, Ohio
+                  </h3>
+               </div>
+
+               <div class="social-media-container center">
+                  <span class="social-media-logo">
+                     <a
+                        href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                     >
+                        <img
+                           src="images/LinkedIn-Logo-black.png"
+                           alt="LinkedIn"
+                           height="50"
+                           width="50"
+                        />
+                     </a>
+                  </span>
+
+                  <span class="social-media-logo">
+                     <a
+                        href="https://github.com/dunlike2big/zj-tan.git"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                     >
+                        <img
+                           src="images/github-logo-black.png"
+                           alt="Github"
+                           height="50"
+                           width="50"
+                        />
+                     </a>
+                  </span>
+               </div>
+
+               <div class="contact-info center">
+                  <h3>
+                     <a href="mailto:tanzhengji@yahoo.com" target="_top">
+                        Email: tanzhengji@yahoo.com
+                     </a>
+                  </h3>
                </div>
             </div>
-         </section>
+         </main>
+      </section>
 
-         <!--Second Page: Skills/Experiences-->
-         <section class="page" id="secondPage">
-            <!-- Button trigger modal -->
-            <button
-               type="button"
-               class="btn btn-primary"
-               data-bs-toggle="modal"
-               data-bs-target="#exampleModal"
-            >
-               Launch demo modal
-            </button>
-
-            <!-- Start of Bootstrap Modal -->
-            <div
-               class="modal fade"
-               id="exampleModal"
-               tabindex="-1"
-               aria-labelledby="exampleModalLabel"
-               aria-hidden="true"
-            >
-               <div class="modal-dialog modal-dialog-centered modal-xl">
-                  <div class="modal-content bg-secondary bg-gradient">
-                     <!-- X-button to close Modal -->
-                     <button
-                        type="button"
-                        class="btn-close position-absolute top-0 end-0 modal-btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                     ></button>
-
-                     <!-- Start of Bootstrap Modal Body -->
-                     <div class="modal-body remove-padding">
-                        <!-- Start of Bootstrap container fluid for Carousel -->
-                        <div class="container-fluid">
-                           <!-- Start of Bootstrap Carousel -->
-                           <div
-                              id="carouselJobExperiences"
-                              class="carousel slide carousel-size"
-                              data-bs-ride="carousel"
-                           >
-                              <!--Template by Handlebars to display job experiences-->
-                              <div id="job-Template-Fill"></div>
-                           </div>
-                           <!-- End of Bootstrap Carousel -->
-                        </div>
-                        <!-- End of Bootstrap container fluid for Carousel -->
-                     </div>
-                     <!-- End of Bootstrap Modal Body -->
-                  </div>
-               </div>
+      <!--Second Page: Skills/Experiences-->
+      <section class="page" id="secondPage">
+         <div class="left-container2">
+            <div class="sideNavBar">
+               <ul>
+                  <a id="menu-language-chart"><li>Languages</li></a>
+                  <a id="menu-programming-chart"><li>Programming Languages</li></a>
+                  <a id="menu-programs-chart"><li>Programs</li></a>
+                  <a id="menu-job"><li>Job Experiences</li></a>
+               </ul>
             </div>
-            <!-- End of Bootstrap Modal -->
+         </div>
 
-            <!-- <div class="radar-graph">
-                              <div id="language-chart" class="hide">
-                                 <canvas id="languages"></canvas>
-                              </div>
-                              <div id="programming-chart" class="hide">
-                                 <canvas id="progLangChart"></canvas>
-                              </div>
-                              <div id="programs-chart" class="hide">
-                                 <canvas id="programsExp"></canvas>
-                              </div>
-                           </div> -->
-         </section>
-
-         <!--Last Page: Personal Projects-->
-         <section class="page" id="lastPage">
-            <div class="main-body">
-               <!--do a slide show here?-->
-               <h2 class="lastPageTitle">Personal Projects</h2>
-
-               <div id="project" class="slide-show-container">
-                  <a id="project-back" class="back hide"><p>&#8592; Back</p></a>
-                  <!--Template by Handlebars to display projects-->
-                  <div id="project-Template-Fill"></div>
-                  <a id="project-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
-                  <a id="project-next-button" class="next hide"><h2>&#10095;</h2></a>
-                  <div id="project-dot-container" class="dot-container center"></div>
+         <main>
+            <div class="radar-graph">
+               <div id="language-chart" class="hide"><canvas id="languages"></canvas></div>
+               <div id="programming-chart" class="hide">
+                  <canvas id="progLangChart"></canvas>
                </div>
+               <div id="programs-chart" class="hide"><canvas id="programsExp"></canvas></div>
             </div>
-         </section>
-      </main>
 
-      <!--***************************************************************************************************************
-      ************************************************* Start of Footer *************************************************
-      ****************************************************************************************************************-->
+            <div id="job-exp" class="slide-show-container">
+               <a id="job-back" class="back hide"><p>&#8592; Back</p></a>
+               <!--Template by Handlebars to display job experiences-->
+               <div id="job-Template-Fill"></div>
+               <a id="job-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
+               <a id="job-next-button" class="next"><h2>&#10095;</h2></a>
+               <div id="job-dot-container" class="dot-container center"></div>
+            </div>
+         </main>
+      </section>
+
+      <!--Last Page: Personal Projects-->
+      <section class="page" id="lastPage">
+         <main>
+            <!--do a slide show here?-->
+            <h2 class="lastPageTitle">Personal Projects</h2>
+
+            <div id="project" class="slide-show-container">
+               <a id="project-back" class="back hide"><p>&#8592; Back</p></a>
+               <!--Template by Handlebars to display projects-->
+               <div id="project-Template-Fill"></div>
+               <a id="project-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
+               <a id="project-next-button" class="next"><h2>&#10095;</h2></a>
+               <div id="project-dot-container" class="dot-container center"></div>
+            </div>
+         </main>
+      </section>
+
       <footer>
-         <p class="copy-right">
-            &copy; Zheng Ji Tan, 2019 | Last updated: 21 December 2020 | Hosted on Google Firebase
-         </p>
+         <span class="copy-right">
+            <p>&copy; Zheng Ji Tan, 2019 Last updated: 22 August 2020</p>
+         </span>
+
          <div class="social-media-logo-container">
-            <a
-               class="social-media-logo"
-               href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
-               target="_blank"
-               rel="noopener noreferrer"
-            >
-               <img src="images/LinkedIn-Logo-white.png" alt="LinkedIn" height="40" width="40" />
-            </a>
-            <a
-               class="social-media-logo"
-               href="https://github.com/Just-ZJ?tab=repositories"
-               target="_blank"
-               rel="noopener noreferrer"
-            >
-               <img src="images/github-logo-white.png" alt="Github" height="40" width="40" />
-            </a>
+            <span class="social-media-logo">
+               <a
+                  href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
+                  <img src="images/LinkedIn-Logo-white.png" alt="LinkedIn" height="40" width="40" />
+               </a>
+            </span>
+
+            <span class="social-media-logo">
+               <a
+                  href="https://github.com/dunlike2big/zj-tan.git"
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
+                  <img src="images/github-logo-white.png" alt="Github" height="40" width="40" />
+               </a>
+            </span>
          </div>
       </footer>
-      <!--***************************************************************************************************************
-      ************************************************** End of Footer **************************************************
-      ****************************************************************************************************************-->
    </body>
-   <!--***************************************************************************************************************
-   *************************************************** End of Body ***************************************************
-   ****************************************************************************************************************-->
 </html>

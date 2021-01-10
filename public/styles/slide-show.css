@@ -1,9 +1,74 @@
 @charset "utf-8";
 /* CSS Document */
-.carousel-size {
-   height: 90vh;
+
+/******************************Start of slideshow******************************/
+.slide-show-container {
+   height: 85vh;
+   margin: 30px 50px;
+   transform: translateY(-50%);
+}
+.individual-slide {
+   height: 100%;
+   min-height: 300px;
+   border-radius: 15px;
+   /*centers vertically in grid*/
+   display: grid;
+   align-items: center;
+}
+.individual-slide-hover:hover {
+   transition: ease-in-out 0.5s;
+   filter: blur(2px) brightness(1.5);
+   user-select: none;
+   cursor: pointer;
+}
+/******************************Job Experience Styles******************************/
+#job-exp {
+   top: 44%;
+   width: 55%;
+   right: 0;
+   position: absolute;
+}
+#job-Template-Fill {
+   height: 100%;
    width: 100%;
    margin: auto;
+   padding: 0 30px;
+   text-align: left;
+}
+.job-description ul li {
+   padding: 5px 0 0;
+   list-style: square;
+}
+/******************************Project Styles******************************/
+#project {
+   top: 35%;
+   width: 80%;
+   height: 77%;
+   margin: 35px auto 0 auto;
+   position: relative;
+}
+.project-title {
+   margin-top: 30px;
+   margin-bottom: 30px;
+}
+#project-Template-Fill {
+   height: 100%;
+   width: 100%;
+   /*grid layouts*/
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(0, 1fr);
+   grid-gap: 0.25em;
+}
+
+.project-image {
+   height: 280px;
+   border-radius: 15px;
+   margin-bottom: 25px;
+}
+.project-description {
+   width: 75%;
+   margin-bottom: 25px;
 }
 .carousel-description {
    text-align: left;
@@ -28,7 +93,13 @@
 }
 .tryout {
 }
-.customize-modal-header {
+.back {
+   position: absolute;
+   padding: 10px 17px;
+   margin: 20px 10px 10px;
+   user-select: none;
+   cursor: pointer;
+   font-size: 18;
 }
 
 @media (max-width: 992px) {

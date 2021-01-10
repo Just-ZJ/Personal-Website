@@ -1,4 +1,3 @@
-// JavaScript Document
 const navbar = document.getElementById("bar-menu-container");
 const navMenuContainer = document.getElementById("nav-menu-container");
 const navigation = document.getElementById("page-navigation-menu");
