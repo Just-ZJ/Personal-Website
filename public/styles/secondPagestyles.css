@@ -8,29 +8,19 @@
    height: 100vh;
    left: -30px;
 }
-.left-container2::after {
-   content: "";
-   display: block;
-   background: url(../images/bg/pexels-photo-547117.jpeg) center center no-repeat;
-   background-size: cover;
-   border-top-right-radius: 400px;
-   border-bottom-right-radius: 400px;
-   top: 0;
-   height: 100vh;
-   filter: blur(3px);
-}
 
 .sideNavBar {
    z-index: 2;
    font-size: 30px;
    top: 50%;
-   margin-left: 50px;
+   margin-left: 100px;
    transform: translateY(-50%);
    position: absolute;
    user-select: none;
    cursor: pointer;
 }
-.sideNavBar ul li {
+
+.sideNavBar-items {
    padding: 10px 20px;
    border-width: 15px;
    margin: 15px;
@@ -38,7 +28,7 @@
    border-radius: 20px;
    text-align: center;
 }
-.sideNavBar ul li:hover {
+.sideNavBar-items:hover {
    background-color: whitesmoke;
    color: black;
    transform: scale(1.1);
@@ -49,6 +39,7 @@
    top: 54%;
    transform: translateY(-50%);
    position: absolute;
+   color: blue;
 }
 .hide {
    display: none;

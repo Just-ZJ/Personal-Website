@@ -23,14 +23,26 @@
 }
 /******************************Job Experience Styles******************************/
 #job-exp {
-   top: 44%;
-   width: 55%;
+   top: 49%;
+   width: 60%;
    right: 0;
    position: absolute;
 }
 #job-Template-Fill {
    height: 100%;
    width: 100%;
+   /*grid layouts*/
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+   grid-gap: 0.25em;
+}
+#job-exp-slide {
+   background-color: #333;
+}
+.job-description {
+   height: 100%;
+   width: 70%;
    margin: auto;
    padding: 0 30px;
    text-align: left;
@@ -44,7 +56,7 @@
    top: 35%;
    width: 80%;
    height: 77%;
-   margin: 35px auto 0 auto;
+   margin: 25px auto 0 auto;
    position: relative;
 }
 .project-title {
@@ -60,9 +72,8 @@
    grid-template-rows: repeat(0, 1fr);
    grid-gap: 0.25em;
 }
-
 .project-image {
-   height: 280px;
+   height: 37vh;
    border-radius: 15px;
    margin-bottom: 25px;
 }
@@ -70,57 +81,108 @@
    width: 75%;
    margin-bottom: 25px;
 }
-.carousel-description {
+.project-creators {
    text-align: left;
-   height: 45vh;
-   overflow: auto;
-   scrollbar-width: thin;
+   width: 50%;
+   float: left;
+   margin-left: 10%;
 }
+.project-creators ul li {
+   list-style: square;
+}
+.project-link {
+   float: right;
+   width: 40%;
+   margin-left: -25px;
+}
+.project-link a {
+   color: antiquewhite;
+}
+.project-link-logo {
+   margin-top: 5px;
+}
+#project-prev-button,
+#project-next-button {
+   line-height: 80vh;
+}
+/******************************End of slideshow******************************/
 
-/* Job Experience */
-.company-logo {
-   height: 150px;
-   width: auto;
-   margin: 50px auto 25px auto;
+/******************************Start of previous, next, back buttons******************************/
+.non-visible {
+   visibility: hidden;
 }
-.remove-padding {
-   padding: 0;
+.prev,
+.next {
+   position: absolute;
+   line-height: 85vh;
+   top: 0;
+   vertical-align: middle;
+   padding: 0 10px;
+   user-select: none; /*disables selection of any text/cannot highlight*/
+   cursor: pointer; /*changes cursor shape*/
 }
-.modal-btn-close {
-   z-index: 1060;
-   margin: 2% 2% 0 0;
-   padding: 10px;
+.prev {
+   margin-left: -30px;
+   left: 0;
+   border-top-left-radius: 15px;
+   border-bottom-left-radius: 15px;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
 }
-.tryout {
+.next {
+   margin-right: -30px;
+   right: 0;
+   border-top-right-radius: 15px;
+   border-bottom-right-radius: 15px;
+   border-top-left-radius: 5px;
+   border-bottom-left-radius: 5px;
+}
+.prev:hover,
+.next:hover {
+   background-color: antiquewhite;
+   opacity: 0.6;
+   color: black;
+   filter: blur(0.5px);
 }
 .back {
    position: absolute;
    padding: 10px 17px;
-   margin: 20px 10px 10px;
+   margin: 30px 0px 0px 30px;
    user-select: none;
    cursor: pointer;
    font-size: 18;
+   z-index: 20;
 }
+.back:hover {
+   display: block;
+   background-color: antiquewhite;
+   transition: ease-in-out 0.5s;
+   color: black;
+   border-radius: 15px;
+}
+/******************************End of previous, next, back buttons******************************/
 
-@media (max-width: 992px) {
-   .company-logo {
-      height: 125px;
-   }
-   .carousel-description {
-      height: 35vh;
-   }
+/******************************Start of dot buttons******************************/
+.dot-container {
+   /* height: 30px; */
+   /* width: fit-content; */
+   position: relative;
+   border-radius: 100%;
+   margin: -25px auto auto auto;
+   /* background-color: brown; */
 }
-
-@media (max-width: 768px) {
-   .modal-header {
-   }
-   .carousel-description {
-      height: 30vh;
-   }
+.dot {
+   height: 13px;
+   width: 13px;
+   margin: auto 2px;
+   background-color: rgb(180, 179, 179);
+   border-radius: 50%;
+   display: inline-block;
+   transition: background-color 0.6s ease;
+   user-select: none;
+   cursor: pointer;
 }
-
-@media (min-width: 576px) {
-   .modal-dialog {
-      max-width: 80vw;
-   }
+.active {
+   background-color: #656665;
 }
+/******************************End of dot buttons******************************/

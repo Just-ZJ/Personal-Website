@@ -3,7 +3,7 @@ const context = {
    jobExperiences: [
       {
          image: {
-            src: "images/osu-logo.png",
+            src: "images/job-experiences/osu-logo.png",
             alt: "OSU Logo",
          },
          location: "University Housing - Residence Life",
@@ -26,15 +26,12 @@ const context = {
                description:
                   "Resolved conflict and relationship issues by creating an environment where residents could learn and reflect about issues concerning themselves and their community",
             },
-            {
-               description:
-                  "Served as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board members",
-            },
          ],
+         hide: false,
       },
       {
          image: {
-            src: "images/osu-logo.png",
+            src: "images/job-experiences/osu-logo.png",
             alt: "OSU Logo",
          },
          location: "Graduate & Professional Admissions Office",
@@ -52,10 +49,11 @@ const context = {
                description: "Assists in ad-hoc projects",
             },
          ],
+         hide: false,
       },
       {
          image: {
-            src: "images/rsaf-logo.png",
+            src: "images/job-experiences/rsaf-logo.png",
             alt: "RSAF Logo",
          },
          location: "Republic of Singapore Air Force",
@@ -76,10 +74,11 @@ const context = {
                description: "Involved in audit preparations",
             },
          ],
+         hide: false,
       },
       {
          image: {
-            src: "images/citi-logo.png",
+            src: "images/job-experiences/citi-logo.png",
             alt: "Citibank Logo",
          },
          location: "Citibank, Singapore",
@@ -94,26 +93,44 @@ const context = {
                description: "Provided front desk customer service",
             },
          ],
+         hide: false,
       },
       {
          image: {
-            src: "images/Marriott_Logo.png",
+            src: "images/job-experiences/Marriott_Logo.png",
             alt: "Marriott Logo",
+         },
+         location: "Marriott Hotel, Singapore",
+         title: "Part-Time Banquet Server",
+         duration: "June 2014 – October 2014",
+         jobDescription: [
             {
                description:
                   "Responsible for day-to-day operations such as setting up and clearing of tables, serving and portioning of food, pouring of wines and drinks",
             },
          ],
+         hide: true,
       },
       {
          image: {
-            src: "images/swissotel-logo.png",
+            src: "images/job-experiences/swissotel-logo.png",
             alt: "Swissotel Logo",
          },
          location: "Blue Potato, Swissotel, Singapore",
          title: "Part-Time Waiter",
          duration: "March 2014 – May 2014",
          jobDescription: [
+            {
+               description:
+                  "Responsible for day-to-day operations such as setting up and clearing of tables, taking orders, cashiering, receptionist duties, as well as room-service",
+            },
+         ],
+         hide: true,
+      },
+      {
+         image: {
+            src: "images/job-experiences/kk-hospital-logo.png",
+            alt: "KK Hospital Logo",
          },
          location: "KK Women's and Children's Hospital, Singapore",
          title: "Temporary Packer",
@@ -121,12 +138,13 @@ const context = {
          jobDescription: [
             { description: "Responsible for organizing and packing of sensitive data" },
          ],
+         hide: true,
       },
    ],
    project: [
       {
          image: {
-            src: "images/Flipper-GIF.gif",
+            src: "images/projects/Flipper-GIF.gif",
             alt: "Flipper GIF",
          },
          title: "Flipper",
@@ -138,6 +156,19 @@ const context = {
             { name: "Deakon Ziegler" },
          ],
          projectLink: "https://github.com/OneMoreOneUp/Hack-Ohio-2020",
+         hide: false,
+      },
+      {
+         image: {
+            src: "images/projects/website-desktop-compatible.png",
+            alt: "Desktop Compatible",
+         },
+         title: "Online Portfolio",
+         projectDescription:
+            "An interactive website showcasing skills, job experience and projects.",
+         creators: [{ name: "Zheng Ji Tan" }],
+         projectLink: "https://github.com/Just-ZJ/Personal-Website",
+         hide: false,
       },
    ],
 };

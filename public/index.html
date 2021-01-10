@@ -2,8 +2,17 @@
 <html lang="en">
    <head>
       <title>ZJ Personal Portfolio</title>
-      <meta content="text/html; charset=utf-8" />
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="author" content="Zheng Ji Tan" />
 
+      <!-- To solve ...firebase.ps1 cannot be loaded because running scripts is disabled on this system:
+         Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser 
+         To update Firebase: firebase deploy
+      -->
+      <!--Image Compression: https://compressor.io/
+          PDF Compressor: https://pdfcompressor.com/
+      -->
       <!--links css files-->
       <link rel="stylesheet" type="text/css" href="styles/globalstyle.css" />
       <link rel="stylesheet" type="text/css" href="styles/firstPagestyles.css" />
@@ -11,74 +20,69 @@
       <link rel="stylesheet" type="text/css" href="styles/lastPagestyles.css" />
       <link rel="stylesheet" type="text/css" href="styles/slide-show.css" />
 
+      <!--links javascript files-->
       <script
          src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"
          defer
       ></script>
       <script src="javascript/radar-chart.js" defer></script>
-      <script src="javascript/page-nav-bar.js" defer></script>
+      <!-- <script src="javascript/page-nav-bar.js" defer></script> -->
+      <script src="javascript/nav.js" defer></script>
 
       <script src="javascript/handlebar-templates.js" async></script>
-
+      <script src="javascript/handlebars.min.js"></script>
       <!--Handlebars Template for Job Experiences-->
       <script id="job-Template" type="text/x-handlebars-template">
          {{#each jobExperiences}}
-            <div id="job-exp-slide" class="individual-slide individual-slide-hover">
-               <div class="center">
-                  <img src={{this.image.src}} alt={{this.image.alt}} height="100" />
-                  <h3>
-                     {{this.location}}
-                  </h3>
-                  <h4>
-                     {{this.title}}
-                  </h4>
-                  <h4>
-                     {{this.duration}}
-                  </h4>
+            {{#if hide}}
+               <div id="job-exp-slide" class="individual-slide individual-slide-hover" style="display: none;">
+            {{else}}
+               <div id="job-exp-slide" class="individual-slide individual-slide-hover">
+            {{/if}}
+                  <div class="center">
+                     <img src={{this.image.src}} alt={{this.image.alt}} height="100" />
+                        <h3>{{this.location}}</h3>
+                        <h4>{{this.title}}</h4>
+                        <h4>{{this.duration}}</h4>
+                  </div>
+                  <div class="job-description center hide">
+                     <ul>
+                        {{#each jobDescription}}
+                           <li>
+                              <p>{{this.description}}</p>
+                           </li>
+                        {{/each}}
+                     </ul>
+                  </div>
                </div>
-               <div class="job-description center hide">
-                  <ul>
-                     {{#each jobDescription}}
-                        <li>
-                           <p>
-                              {{this.description}}
-                           </p>
-                        </li>
-                     {{/each}}
-                  </ul>
-               </div>
-            </div>
          {{/each}}
       </script>
 
       <!--Handlebars Template for Projects-->
       <script id="project-Template" type="text/x-handlebars-template">
          {{#each project}}
-            <div id="project-slide" class="individual-slide individual-slide-hover">
-               <div class="center">
-                  <div class="project-title">
-                     <h2>
-                        {{this.title}}
-                     </h2>
+            {{#if hide}}
+               <div id="project-slide" class="individual-slide individual-slide-hover" style="display: none;">
+            {{else}}
+               <div id="project-slide" class="individual-slide individual-slide-hover">
+            {{/if}}
+                  <div class="center">
+                     <div class="project-title">
+                     <h2>{{this.title}}</h2>
                   </div>
+
                   <img class="project-image" src={{this.image.src}} alt={{this.image.alt}} />
 
                   <div class="project-description center">
-                     <p>
-                        {{this.projectDescription}}
-                     </p>
+                     <p>{{this.projectDescription}}</p>
                   </div>
 
                   <div class="project-creators">
-                     <h4>
-                        Created by:
-                     </h4>
+                     <h4>Created by:</h4>
                      <ul>
                         {{#each creators}}
                            <li>
-                              <p>
-                                 {{this.name}}
-                              </p>
+                              <p>{{this.name}}</p>
                            </li>
                         {{/each}}
                      </ul>
@@ -101,19 +105,18 @@
          {{/each}}
       </script>
 
-      <script type="module" src="javascript/job-exp-slideshow.js" async></script>
+      <script type="module" src="javascript/slideshow.js" async></script>
       <script type="module" src="javascript/SlideShow-Class.js" async></script>
    </head>
 
    <body>
-      <header>
+      <!-- <header>
          <nav id="page-navigation-menu">
             <div id="bar-menu-container">
                <div class="bar-menu-nav"></div>
                <div class="bar-menu-nav"></div>
                <div class="bar-menu-nav"></div>
             </div>
-
             <div id="nav-menu-container">
                <ul>
                   <div id="nav-menu">
@@ -152,126 +155,169 @@
                         </div>
                      </a>
                   </div>
-               </div>
+               </ul>
+            </div>
+         </nav>
+      </header> -->
+
+      <header>
+         <nav id="nav-menu-container">
+            <img id="zj" src="images/zj-logo.png" alt="" />
+
+            <div class="nav-menu">
+               <a href="#firstPage">
+                  <h2 class="underline">Contact</h2>
+               </a>
+            </div>
+
+            <div class="nav-menu">
+               <a href="#secondPage">
+                  <h2>Experiences</h2>
+               </a>
+            </div>
+
+            <div class="nav-menu">
+               <a href="#lastPage">
+                  <h2>Personal Projects</h2>
+               </a>
+            </div>
+
+            <div class="nav-menu">
+               <a href="ZhengJi_Resume.pdf" download>
+                  <h2>Resume &nbsp;</h2>
+               </a>
+            </div>
+
+            <div class="nav-menu">
+               <a href="ZhengJi_Resume.pdf" download>
+                  <img id="download-icon" src="images/download-icon.png" alt="Download Icon" />
+               </a>
             </div>
          </nav>
       </header>
+      <main>
+         <!--First Page: Contact/About-->
+         <section class="page" id="firstPage">
+            <div class="main-body">
+               <div class="left-container1">
+                  <div class="center">
+                     <img class="resume-pic" src="images/resume-pic.png" alt="Profile Pic" />
+                  </div>
 
-      <!--First Page: Contact/About-->
-      <section class="page" id="firstPage">
-         <main>
-            <div class="left-container1">
-               <div class="center">
-                  <img src="images/resume-pic.png" alt="Profile Pic" height="200" width="200" />
-               </div>
+                  <div class="profile-description center">
+                     <h1>Zheng Ji <span class="highlight">Tan</span></h1>
+                     <h3>
+                        2<sup>nd</sup> Year Student <br />
+                        Expected Graduation: May 2023 <br />
+                        Bachelors of Science in Computer Science &amp; Engineering <br />
+                        Ohio State University, Columbus, Ohio
+                     </h3>
+                  </div>
 
-               <div class="profile-description center">
-                  <h1>Zheng Ji <span class="highlight">Tan</span></h1>
-                  <h3>
-                     2<sup>nd</sup> Year Student <br />
-                     Expected Graduation: May 2023 <br />
-                     Bachelors of Science in Computer Science &amp; Engineering <br />
-                     Ohio State University, Columbus, Ohio
-                  </h3>
-               </div>
+                  <div class="social-media-container center">
+                     <span class="social-media-logo">
+                        <a
+                           href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                        >
+                           <img
+                              src="images/LinkedIn-Logo-black.png"
+                              alt="LinkedIn"
+                              height="50"
+                              width="50"
+                           />
+                        </a>
+                     </span>
 
-               <div class="social-media-container center">
-                  <span class="social-media-logo">
-                     <a
-                        href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                     >
-                        <img
-                           src="images/LinkedIn-Logo-black.png"
-                           alt="LinkedIn"
-                           height="50"
-                           width="50"
-                        />
-                     </a>
-                  </span>
+                     <span class="social-media-logo">
+                        <a
+                           href="https://github.com/Just-ZJ?tab=repositories"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                        >
+                           <img
+                              src="images/github-logo-black.png"
+                              alt="Github"
+                              height="50"
+                              width="50"
+                           />
+                        </a>
+                     </span>
+                  </div>
 
-                  <span class="social-media-logo">
-                     <a
-                        href="https://github.com/dunlike2big/zj-tan.git"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                     >
-                        <img
-                           src="images/github-logo-black.png"
-                           alt="Github"
-                           height="50"
-                           width="50"
-                        />
-                     </a>
-                  </span>
-               </div>
-
-               <div class="contact-info center">
-                  <h3>
-                     <a href="mailto:tanzhengji@yahoo.com" target="_top">
-                        Email: tanzhengji@yahoo.com
-                     </a>
-                  </h3>
+                  <div class="contact-info center">
+                     <h3>
+                        <a href="mailto:tanzhengji@yahoo.com" target="_top">
+                           Email: tanzhengji@yahoo.com
+                        </a>
+                     </h3>
+                  </div>
                </div>
             </div>
-         </main>
-      </section>
+         </section>
 
-      <!--Second Page: Skills/Experiences-->
-      <section class="page" id="secondPage">
-         <div class="left-container2">
-            <div class="sideNavBar">
-               <ul>
-                  <a id="menu-language-chart"><li>Languages</li></a>
-                  <a id="menu-programming-chart"><li>Programming Languages</li></a>
-                  <a id="menu-programs-chart"><li>Programs</li></a>
-                  <a id="menu-job"><li>Job Experiences</li></a>
-               </ul>
-            </div>
-         </div>
-
-         <main>
-            <div class="radar-graph">
-               <div id="language-chart" class="hide"><canvas id="languages"></canvas></div>
-               <div id="programming-chart" class="hide">
-                  <canvas id="progLangChart"></canvas>
+         <!--Second Page: Skills/Experiences-->
+         <section class="page" id="secondPage">
+            <div class="left-container2">
+               <div class="sideNavBar">
+                  <div class="sideNavBar-items">
+                     <a id="menu-language-chart">Languages</a>
+                  </div>
+                  <div class="sideNavBar-items">
+                     <a id="menu-programming-chart">Programming Languages</a>
+                  </div>
+                  <div class="sideNavBar-items">
+                     <a id="menu-programs-chart">Programs</a>
+                  </div>
+                  <div class="sideNavBar-items">
+                     <a id="menu-job">Job Experiences</a>
+                  </div>
                </div>
-               <div id="programs-chart" class="hide"><canvas id="programsExp"></canvas></div>
             </div>
 
-            <div id="job-exp" class="slide-show-container">
-               <a id="job-back" class="back hide"><p>&#8592; Back</p></a>
-               <!--Template by Handlebars to display job experiences-->
-               <div id="job-Template-Fill"></div>
-               <a id="job-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
-               <a id="job-next-button" class="next"><h2>&#10095;</h2></a>
-               <div id="job-dot-container" class="dot-container center"></div>
-            </div>
-         </main>
-      </section>
+            <div class="main-body">
+               <div class="radar-graph">
+                  <div id="language-chart" class="hide"><canvas id="languages"></canvas></div>
+                  <div id="programming-chart" class="hide">
+                     <canvas id="progLangChart"></canvas>
+                  </div>
+                  <div id="programs-chart" class="hide"><canvas id="programsExp"></canvas></div>
+               </div>
 
-      <!--Last Page: Personal Projects-->
-      <section class="page" id="lastPage">
-         <main>
-            <!--do a slide show here?-->
-            <h2 class="lastPageTitle">Personal Projects</h2>
-
-            <div id="project" class="slide-show-container">
-               <a id="project-back" class="back hide"><p>&#8592; Back</p></a>
-               <!--Template by Handlebars to display projects-->
-               <div id="project-Template-Fill"></div>
-               <a id="project-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
-               <a id="project-next-button" class="next"><h2>&#10095;</h2></a>
-               <div id="project-dot-container" class="dot-container center"></div>
+               <div id="job-exp" class="slide-show-container">
+                  <a id="job-back" class="back hide"><p>&#8592; Back</p></a>
+                  <!--Template by Handlebars to display job experiences-->
+                  <div id="job-Template-Fill"></div>
+                  <a id="job-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
+                  <a id="job-next-button" class="next"><h2>&#10095;</h2></a>
+                  <div id="job-dot-container" class="dot-container center"></div>
+               </div>
             </div>
-         </main>
-      </section>
+         </section>
+
+         <!--Last Page: Personal Projects-->
+         <section class="page" id="lastPage">
+            <div class="main-body">
+               <!--do a slide show here?-->
+               <h2 class="lastPageTitle">Personal Projects</h2>
+
+               <div id="project" class="slide-show-container">
+                  <a id="project-back" class="back hide"><p>&#8592; Back</p></a>
+                  <!--Template by Handlebars to display projects-->
+                  <div id="project-Template-Fill"></div>
+                  <a id="project-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
+                  <a id="project-next-button" class="next"><h2>&#10095;</h2></a>
+                  <div id="project-dot-container" class="dot-container center"></div>
+               </div>
+            </div>
+         </section>
+      </main>
 
       <footer>
-         <span class="copy-right">
-            <p>&copy; Zheng Ji Tan, 2019 Last updated: 22 August 2020</p>
-         </span>
+         <p class="copy-right">
+            &copy; Zheng Ji Tan, 2019 | Last updated: 21 December 2020 | Hosted on Google Firebase
+         </p>
 
          <div class="social-media-logo-container">
             <span class="social-media-logo">

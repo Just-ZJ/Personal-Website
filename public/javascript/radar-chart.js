@@ -3,11 +3,11 @@ var language = document.getElementById("languages");
 var progLang = document.getElementById("progLangChart");
 var programs = document.getElementById("programsExp");
 
-Chart.defaults.global.defaultFontColor = "antiquewhite";
+Chart.defaults.global.defaultFontColor = "black";
 Chart.defaults.global.legend = false;
 Chart.defaults.global.tooltips.displayColors = false;
 
-var myRadarChart2 = new Chart(language, {
+var languageRadar = new Chart(language, {
    type: "radar",
    data: {
       labels: ["English", "Mandarin", "Korean", "Japanese"],
@@ -15,7 +15,7 @@ var myRadarChart2 = new Chart(language, {
          {
             fontSize: 20,
             backgroundColor: "rgba(00, 255, 00, 0.3)",
-            borderColor: "#00FF00",
+            borderColor: "#333",
             borderWidth: 2,
             data: [5, 5, 2, 2],
          },
@@ -70,7 +70,7 @@ var myRadarChart2 = new Chart(language, {
    },
 });
 
-var myRadarChart2 = new Chart(progLang, {
+var programmingLanguageRadar = new Chart(progLang, {
    type: "radar",
    data: {
       labels: ["Java", "HTML", "CSS", "Javascript"],
@@ -78,7 +78,7 @@ var myRadarChart2 = new Chart(progLang, {
          {
             fontSize: 20,
             backgroundColor: "rgba(00, 255, 00, 0.3)",
-            borderColor: "#00FF00",
+            borderColor: "#333",
             borderWidth: 2,
             data: [4, 5, 4, 4],
          },
@@ -133,7 +133,7 @@ var myRadarChart2 = new Chart(progLang, {
    },
 });
 
-var myRadarChart3 = new Chart(programs, {
+var programmingRadar = new Chart(programs, {
    type: "radar",
    data: {
       labels: ["MS Word", "MS Excel", "MS Powerpoint", "MS Access", "Photoshop"],
@@ -141,7 +141,7 @@ var myRadarChart3 = new Chart(programs, {
          {
             fontSize: 20,
             backgroundColor: "rgba(00, 255, 00, 0.3)",
-            borderColor: "#00FF00",
+            borderColor: "#333",
             borderWidth: 2,
             data: [4, 4, 4, 3, 4],
          },

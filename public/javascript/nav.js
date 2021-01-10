@@ -1,6 +1,5 @@
 // JavaScript Document
-
-const navMenu = document.getElementsByClassName("nav-item");
+const navMenu = document.getElementsByClassName("nav-menu");
 let currentUnderlineIndex = 0;
 navBarOnLoad();
 
@@ -23,9 +22,12 @@ function navBarOnLoad() {
 
 function setActiveForNavBar(i) {
    //remove previous underline class
-   navMenu[currentUnderlineIndex].classList.remove("active");
+   navMenu[currentUnderlineIndex]
+      .getElementsByTagName("a")[0]
+      .getElementsByTagName("h2")[0]
+      .classList.remove("underline");
    //add underline class
-   navMenu[i].classList.add("active");
+   navMenu[i].getElementsByTagName("a")[0].getElementsByTagName("h2")[0].classList.add("underline");
 }
 
 function getDocHeight() {
