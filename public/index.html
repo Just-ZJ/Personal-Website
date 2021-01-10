@@ -61,10 +61,10 @@
                   <div class="container-fluid carousel-item active">
                {{/if}}
                   <!-- Start of Modal Header -->
-                  <div class="modal-header remove-padding customize-modal-header">
+                  <div class="modal-header remove-padding">
                      <div class="row w-100">
                         <!-- company logo -->
-                        <div class="col-sm-12 col-lg-5 offset-lg-1">
+                        <div class="col-12 col-sm-12 col-lg-5 offset-lg-1">
                            <img
                               src={{this.image.src}}
                               class="d-block company-logo rounded img-fluid center"
@@ -72,8 +72,7 @@
                            />
                         </div>
                         <!-- location + title + duration -->
-                        <div class="col-sm-12 col-lg-5 center">
-                           <div class="d-none d-md-block">
+                        <div class="col-12 col-sm-12 col-lg-5 center">
                               <h5>
                                  {{this.location}}
                               </h5>
@@ -82,7 +81,6 @@
                                  <br />
                                  {{this.duration}}
                               </p>
-                           </div>
                         </div>
                      </div>
                   </div>
@@ -92,7 +90,7 @@
                   <div class="modal-body ">
                      <!-- job description -->
                      <div class="row carousel-description  center">
-                        <div class="col-sm-8 offset-sm-2 tryout " >
+                        <div class="col-sm-8 offset-sm-2" >
                            <ul>
                               {{#each jobDescription}}
                                  <li>
@@ -242,7 +240,8 @@
                </div>
             </div>
          </nav>
-      </header> -->
+      </header>
+      -->
       <!--***************************************************************************************************************
       ************************************************** End of Header **************************************************
       ****************************************************************************************************************-->

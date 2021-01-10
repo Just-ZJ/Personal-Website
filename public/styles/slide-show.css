@@ -8,8 +8,9 @@
 .carousel-description {
    text-align: left;
    height: 45vh;
-   overflow: auto;
-   scrollbar-width: thin;
+   padding-top: 25px;
+   overflow-y: auto;
+   overflow-x: hidden;
 }
 
 /* Job Experience */
@@ -26,10 +27,6 @@
    margin: 2% 2% 0 0;
    padding: 10px;
 }
-.tryout {
-}
-.customize-modal-header {
-}
 
 @media (max-width: 992px) {
    .company-logo {
@@ -37,14 +34,7 @@
    }
    .carousel-description {
       height: 35vh;
-   }
-}
-
-@media (max-width: 768px) {
-   .modal-header {
-   }
-   .carousel-description {
-      height: 30vh;
+      padding-top: 15px;
    }
 }
 
