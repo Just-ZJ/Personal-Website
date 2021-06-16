@@ -28,7 +28,7 @@ const context = {
             },
             {
                description:
-                  "Served as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board memberserved as a peer-advisor for the Towers Community Council, and guiding its executive board members",
+                  "Served as a peer-advisor for the Towers Community Council, and guiding its executive board members",
             },
          ],
          hide: false,

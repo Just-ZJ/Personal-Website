@@ -1,5 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
+#secondPage {
+   background-color: #000000;
+}
 .progress-bar-dimension {
    height: 6px;
    width: 250px;
@@ -8,9 +11,16 @@
    position: relative;
    height: 6px;
 }
-.skills-container {
-   width: 50%;
+.skills-container,
+.language-container {
+   width: fit-content;
    background-color: gray;
+   border-radius: 5px;
+   padding: 10px;
+   margin-left: 10%;
+}
+.language-container {
+   margin-top: 25px;
 }
 
 figure {

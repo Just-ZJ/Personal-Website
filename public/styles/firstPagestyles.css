@@ -13,6 +13,7 @@
 .profile-description {
    padding-top: 10px;
    line-height: 2.3rem;
+   color: #4d4d4f;
 }
 
 .contact-info {
@@ -22,10 +23,10 @@
 
 /*End of Page 1*/
 .contact-info a {
-   color: antiquewhite;
+   color: #4d4d4f;
 }
 .contact-info a:hover {
-   color: black;
+   color: #2997ff;
 }
 .social-media-container {
    margin: 1rem auto 0 auto;
@@ -40,4 +41,38 @@
 .social-media-logo:hover {
    transform: rotate(360deg) scale(1.25);
    transition-duration: 1.5s;
+}
+
+/**************************Speech Bubble*****************************/
+.speechBubble {
+   margin: 0px auto;
+   border: 4px solid #000000;
+   padding: 20px;
+   text-align: center;
+   position: relative;
+   border-radius: 0px 15px 15px;
+}
+.speechBubblePointer:before {
+   content: "";
+   width: 0px;
+   height: 0px;
+   position: absolute;
+   border-left: 10px solid transparent;
+   border-right: 10px solid #000000;
+   border-top: 10px solid #000000;
+   border-bottom: 10px solid transparent;
+   left: -20px;
+   top: 6px;
+}
+.speechBubblePointer:after {
+   content: "";
+   width: 0px;
+   height: 0px;
+   position: absolute;
+   border-left: 7px solid transparent;
+   border-right: 7px solid #fbfbfd;
+   border-top: 7px solid #fbfbfd;
+   border-bottom: 7px solid transparent;
+   left: -11px;
+   top: 10px;
 }

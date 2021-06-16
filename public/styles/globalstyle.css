@@ -9,17 +9,14 @@
 a {
    text-decoration: none; /*removes underline in <a> tag*/
 }
-h1,
-.profile-description {
-   color: antiquewhite;
+h1 {
+   color: #4d4d4f;
 }
-.highlight {
-   color: gold;
-}
+
 .page {
    height: 100vh;
    width: 100vw;
-   background-color: brown;
+   background-color: #fbfbfd;
 }
 #firstPage,
 #lastPage {
@@ -37,7 +34,7 @@ h1,
 }
 .main-body {
    padding: 100px 0 0 0;
-   width: 80%;
+   width: 65%;
 }
 body {
    scroll-behavior: smooth;
@@ -52,7 +49,7 @@ body {
 header {
    height: 50px;
    width: 100vw;
-   background-color: #96613d;
+   background-color: #333333;
 }
 .navbar {
    height: inherit;
@@ -61,6 +58,7 @@ header {
 }
 .navbar h5 {
    margin: 0;
+   color: #aeaeae;
 }
 .zj-logo {
    position: absolute;
@@ -78,7 +76,7 @@ header {
 
 footer {
    bottom: 0;
-   background-color: #202020;
+   background-color: #333333;
 }
 
 .project-image {
