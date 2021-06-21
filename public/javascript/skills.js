@@ -22,3 +22,16 @@ function setWidth() {
    }
 }
 setWidth();
+
+function showJobExperience(slideNo) {
+   const jobCards = document.getElementsByClassName("carousel-item");
+   const indicators = document.querySelectorAll(".carousel-indicators li");
+   jobCards.forEach((element) => {
+      element.classList.remove("active");
+   });
+   indicators.forEach((element) => {
+      element.classList.remove("active");
+   });
+   jobCards[slideNo].classList.add("active");
+   indicators[slideNo].classList.add("active");
+}

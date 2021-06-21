@@ -42,3 +42,28 @@ figure {
    height: 6px;
    width: max-content;
 }
+
+/*job exp*/
+.job-cards-container {
+}
+.job-cards {
+   float: right;
+   margin: 10px;
+   height: 50px;
+   width: 70%;
+   background-color: #333333;
+   border-radius: 5px;
+}
+.card-description-role {
+   float: left;
+}
+.card-description-job {
+   float: left;
+}
+.card-description-period {
+   float: right;
+}
+
+.modal-body {
+   background-color: #333333;
+}

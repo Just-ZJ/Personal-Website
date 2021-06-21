@@ -29,6 +29,24 @@
          crossorigin="anonymous"
       ></script>
 
+      <!--**************************************** MDB Icons ****************************************-->
+      <link
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+         rel="stylesheet"
+      />
+      <link
+         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+         rel="stylesheet"
+      />
+      <link
+         href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+         rel="stylesheet"
+      />
+      <script
+         type="text/javascript"
+         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+      ></script>
+
       <!--******************************************* Custom CSS *******************************************-->
       <link rel="stylesheet" type="text/css" href="styles/globalstyle.css" />
       <link rel="stylesheet" type="text/css" href="styles/firstPagestyles.css" />
@@ -50,7 +68,7 @@
       <script src="javascript/nav.js" defer></script>
       <script src="javascript/handlebar-templates.js" async></script>
 
-      <!--Handlebars Template for Job Experiences-->
+      <!--Handlebars Template for Job Experience Slide/Carousel-->
       <script id="job-Template" type="text/x-handlebars-template">
          <!-- Start of Bootstrap Carousel Content -->
          <div class="carousel-inner center">
@@ -147,9 +165,26 @@
          <!-- End of Bootstrap Carousel Previous & Next Buttons - job experiences -->
       </script>
 
+      <!--Handlebars Template for Job Experience Cards-->
+      <script id="jobCards-Template" type="text/x-handlebars-template">
+         {{#each jobExperiences}}
+            <button
+               type="button"
+               class="btn btn-primary job-cards"
+               data-bs-toggle="modal"
+               data-bs-target="#jobExperienceModal"
+               onclick="showJobExperience({{this.slideNo}})"
+            >
+               <span class="card-description-job">{{this.location}}</span>
+               <span class="card-description-period">{{this.duration}}</span>
+            </button>
+         {{/each}}
+      </script>
+
       <!--Handlebars Template for Projects-->
       <script id="project-Template" type="text/x-handlebars-template">
          {{#each project}}
+
             {{#if hide}}
                <div id="project-slide" class="individual-slide individual-slide-hover" style="display: none;">
             {{else}}
@@ -191,6 +226,7 @@
                   </div>
                </div>
             </div>
+
          {{/each}}
       </script>
 
@@ -261,7 +297,14 @@
                      />
                      <h1>Zheng Ji <span style="color: #2997ff">Tan</span></h1>
                   </div>
-
+                  <!-- <div class="row profile-description center">
+                        <h5>
+                           2<sup>nd</sup> Year Student <br />
+                           Expected Graduation: May 2023 <br />
+                           B.S. in Computer Science &amp; Engineering <br />
+                           The Ohio State University, Columbus, Ohio
+                        </h5>
+                     </div> -->
                   <!-- right column -->
                   <div class="col-12 col-sm-12 col-xl-8">
                      <!-- 1st nested row in right column -->
@@ -271,85 +314,48 @@
                               >"A motivated, diligent and meticulous individual armed with burning
                               passion towards solving problems with computer science."</span
                            >
-                           <!-- Currently seeking for internship opportunities -->
-                           <!-- 2<sup>nd</sup> Year Student <br />
-                           Expected Graduation: May 2023 <br />
-                           B.S. in Computer Science &amp; Engineering <br />
-                           The Ohio State University, Columbus, Ohio -->
+                           <br /><br />
+                           Currently seeking internship opportunities for Summer 2022.
                         </h5>
                      </div>
-                     <div class="row profile-description center">
+                     <!-- social media icons -->
+                     <div class="row social-media-container">
+                        <div class="center">
+                           <a
+                              class="btn btn-primary btn-lg btn-floating"
+                              style="background-color: #333"
+                              href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
+                              role="button"
+                              ><i class="fa-2x fab fa-linkedin-in"></i
+                           ></a>
+                           <a
+                              class="btn btn-primary btn-lg btn-floating"
+                              style="background-color: #333"
+                              href="https://github.com/Just-ZJ?tab=repositories"
+                              role="button"
+                              ><i class="fa-2x fab fa-github"></i
+                           ></a>
+                        </div>
+                     </div>
+                     <!-- email -->
+                     <div class="row contact-info center">
                         <h5>
-                           <!-- Currently seeking for internship opportunities -->
-                           2<sup>nd</sup> Year Student <br />
-                           Expected Graduation: May 2023 <br />
-                           B.S. in Computer Science &amp; Engineering <br />
-                           The Ohio State University, Columbus, Ohio
+                           <a href="mailto:tanzhengji@yahoo.com" target="_top">
+                              Email: tanzhengji@yahoo.com
+                           </a>
                         </h5>
                      </div>
                   </div>
-               </div>
-
-               <!-- 2nd nested row in right column -->
-               <div class="row social-media-container">
-                  <div class="center">
-                     <div class="social-media-logo">
-                        <a
-                           href="https://www.linkedin.com/in/zheng-ji-tan-996ab2aa/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                        >
-                           <img
-                              src="images/LinkedIn-Logo-black.png"
-                              alt="LinkedIn"
-                              height="50"
-                              width="50"
-                           />
-                        </a>
-                     </div>
-                     <div class="social-media-logo">
-                        <a
-                           href="https://github.com/Just-ZJ?tab=repositories"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                        >
-                           <img
-                              src="images/github-logo-black.png"
-                              alt="Github"
-                              height="50"
-                              width="50"
-                           />
-                        </a>
-                     </div>
-                  </div>
-               </div>
-               <!-- 3rd nested row in right column -->
-               <div class="row contact-info center">
-                  <h5>
-                     <a href="mailto:tanzhengji@yahoo.com" target="_top">
-                        Email: tanzhengji@yahoo.com
-                     </a>
-                  </h5>
                </div>
             </div>
          </section>
 
          <!--Second Page: Skills/Experiences-->
          <section class="page" id="secondPage">
-            <!-- Button trigger modal -->
-            <button
-               type="button"
-               class="btn btn-primary"
-               data-bs-toggle="modal"
-               data-bs-target="#exampleModal"
-            >
-               Launch demo modal
-            </button>
-
             <!-- Start of Bootstrap Modal -->
             <div
                class="modal fade"
-               id="exampleModal"
+               id="jobExperienceModal"
                tabindex="-1"
                aria-labelledby="exampleModalLabel"
                aria-hidden="true"
@@ -389,7 +395,13 @@
 
             <div class="container-fluid">
                <div class="row">
-                  <div class="col"></div>
+                  <!-- Job Experience Column -->
+                  <div class="col">
+                     <div class="job-cards-container">
+                        <div id="jobCards-Template-Fill"></div>
+                     </div>
+                  </div>
+                  <!-- Skills Column -->
                   <div class="col">
                      <div class="container-fluid skills-container">
                         <!-- HTML & CSS -->

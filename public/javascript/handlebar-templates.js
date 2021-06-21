@@ -9,6 +9,7 @@ const context = {
          location: "University Housing - Residence Life",
          title: "Resident Advisor",
          duration: "August 2020 – Current",
+         modalID: "OSURA",
          jobDescription: [
             {
                description:
@@ -42,6 +43,7 @@ const context = {
          location: "Graduate & Professional Admissions Office",
          title: "Admissions Assistant",
          duration: "October 2019 – April 2020",
+         modalID: "",
          jobDescription: [
             {
                description:
@@ -65,6 +67,7 @@ const context = {
          location: "Republic of Singapore Air Force",
          title: "Combat Security Trooper, Corporal",
          duration: "July 2017 – May 2019",
+         modalID: "",
          jobDescription: [
             {
                description:
@@ -91,6 +94,7 @@ const context = {
          location: "Citibank, Singapore",
          title: "Personal Banker, Internship",
          duration: "March 2016 – August 2016",
+         modalID: "",
          jobDescription: [
             {
                description:
@@ -111,6 +115,7 @@ const context = {
          location: "Marriott Hotel, Singapore",
          title: "Part-Time Banquet Server",
          duration: "June 2014 – October 2014",
+         modalID: "",
          jobDescription: [
             {
                description:
@@ -128,6 +133,7 @@ const context = {
          location: "Blue Potato, Swissotel, Singapore",
          title: "Part-Time Waiter",
          duration: "March 2014 – May 2014",
+         modalID: "",
          jobDescription: [
             {
                description:
@@ -145,6 +151,7 @@ const context = {
          location: "KK Women's and Children's Hospital, Singapore",
          title: "Temporary Packer",
          duration: "January 2014 – March 2014",
+         modalID: "",
          jobDescription: [
             { description: "Responsible for organizing and packing of sensitive data" },
          ],
@@ -191,6 +198,13 @@ function fillJobTemplate() {
    document.getElementById("job-Template-Fill").innerHTML = compiledJob;
 }
 
+function fillJobCardsTemplate() {
+   const jobSource = document.getElementById("jobCards-Template").innerHTML;
+   const jobTemplate = Handlebars.compile(jobSource);
+   const compiledJob = jobTemplate(context);
+   document.getElementById("jobCards-Template-Fill").innerHTML = compiledJob;
+}
+
 function fillProjectTemplate() {
    const projectSource = document.getElementById("project-Template").innerHTML;
    const projectTemplate = Handlebars.compile(projectSource);
@@ -199,4 +213,5 @@ function fillProjectTemplate() {
 }
 
 fillJobTemplate();
+fillJobCardsTemplate();
 fillProjectTemplate();
