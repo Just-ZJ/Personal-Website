@@ -1,2 +1,22 @@
 @charset "utf-8";
 /* CSS Document */
+#project {
+   width: inherit;
+   margin: auto;
+}
+.project-card {
+   margin: 10px;
+   border: 5px solid #000;
+   border-radius: 5px;
+}
+.project-card-body {
+   margin: 10px;
+}
+.project-image {
+   height: 37vh;
+   border-radius: 15px;
+   margin-bottom: 25px;
+}
+.project-creators {
+   text-align: start;
+}
