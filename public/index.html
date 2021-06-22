@@ -184,7 +184,7 @@
       <!--Handlebars Template for Projects-->
       <script id="project-Template" type="text/x-handlebars-template">
          {{#each project}}
-
+         <div class="col project-card">
             {{#if hide}}
                <div id="project-slide" class="individual-slide individual-slide-hover" style="display: none;">
             {{else}}
@@ -201,32 +201,38 @@
                      <p>{{this.projectDescription}}</p>
                   </div>
 
-                  <div class="project-creators">
-                     <h4>Created by:</h4>
-                     <ul>
-                        {{#each creators}}
-                           <li>
-                              <p>{{this.name}}</p>
-                           </li>
-                        {{/each}}
-                     </ul>
-                  </div>
-                  <div class="project-link">
-                     <a href="{{this.projectLink}}" target="_blank">
-                        Project Link
-                        <div class="project-link-logo">
-                           <img
-                              src="images/github-logo-black.png"
-                              alt="Github"
-                              height="50"
-                              width="50"
-                           />
+                  <div class="row">
+                     <div class="col">
+                        <div class="project-creators">
+                           <h4>Created by:</h4>
+                           <ul>
+                              {{#each creators}}
+                                 <li>
+                                    <p>{{this.name}}</p>
+                                 </li>
+                              {{/each}}
+                           </ul>
                         </div>
-                     </a>
+                     </div>
+                     <div class="col">
+                        <div class="project-link">
+                           <a href="{{this.projectLink}}" target="_blank">
+                              Project Link
+                              <div class="project-link-logo">
+                                 <img
+                                 src="images/github-logo-black.png"
+                                 alt="Github"
+                                 height="50"
+                                 width="50"
+                                 />
+                              </div>
+                           </a>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
-
+         </div>
          {{/each}}
       </script>
 
@@ -285,7 +291,7 @@
 
       <main>
          <!--First Page: Contact/About-->
-         <section class="page" id="firstPage">
+         <section id="firstPage" class="page">
             <div class="main-body container-fluid">
                <div class="row align-items-center">
                   <!-- left column(profile pic + name) -->
@@ -351,49 +357,49 @@
          </section>
 
          <!--Second Page: Skills/Experiences-->
-         <section class="page" id="secondPage">
-            <!-- Start of Bootstrap Modal -->
-            <div
-               class="modal fade"
-               id="jobExperienceModal"
-               tabindex="-1"
-               aria-labelledby="exampleModalLabel"
-               aria-hidden="true"
-            >
-               <div class="modal-dialog modal-dialog-centered modal-xl">
-                  <div class="modal-content bg-secondary bg-gradient">
-                     <!-- X-button to close Modal -->
-                     <button
-                        type="button"
-                        class="btn-close position-absolute top-0 end-0 modal-btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                     ></button>
+         <section id="secondPage" class="page">
+            <div class="main-body container-fluid">
+               <!-- Start of Bootstrap Modal -->
+               <div
+                  class="modal fade"
+                  id="jobExperienceModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+               >
+                  <div class="modal-dialog modal-dialog-centered modal-xl">
+                     <div class="modal-content bg-secondary bg-gradient">
+                        <!-- X-button to close Modal -->
+                        <button
+                           type="button"
+                           class="btn-close position-absolute top-0 end-0 modal-btn-close"
+                           data-bs-dismiss="modal"
+                           aria-label="Close"
+                        ></button>
 
-                     <!-- Start of Bootstrap Modal Body -->
-                     <div class="modal-body remove-padding">
-                        <!-- Start of Bootstrap container fluid for Carousel -->
-                        <div class="container-fluid">
-                           <!-- Start of Bootstrap Carousel -->
-                           <div
-                              id="carouselJobExperiences"
-                              class="carousel slide carousel-size"
-                              data-bs-ride="carousel"
-                           >
-                              <!--Template by Handlebars to display job experiences-->
-                              <div id="job-Template-Fill"></div>
+                        <!-- Start of Bootstrap Modal Body -->
+                        <div class="modal-body remove-padding">
+                           <!-- Start of Bootstrap container fluid for Carousel -->
+                           <div class="container-fluid">
+                              <!-- Start of Bootstrap Carousel -->
+                              <div
+                                 id="carouselJobExperiences"
+                                 class="carousel slide carousel-size"
+                                 data-bs-ride="carousel"
+                              >
+                                 <!--Template by Handlebars to display job experiences-->
+                                 <div id="job-Template-Fill"></div>
+                              </div>
+                              <!-- End of Bootstrap Carousel -->
                            </div>
-                           <!-- End of Bootstrap Carousel -->
+                           <!-- End of Bootstrap container fluid for Carousel -->
                         </div>
-                        <!-- End of Bootstrap container fluid for Carousel -->
+                        <!-- End of Bootstrap Modal Body -->
                      </div>
-                     <!-- End of Bootstrap Modal Body -->
                   </div>
                </div>
-            </div>
-            <!-- End of Bootstrap Modal -->
+               <!-- End of Bootstrap Modal -->
 
-            <div class="container-fluid">
                <div class="row">
                   <!-- Job Experience Column -->
                   <div class="col">
@@ -606,18 +612,15 @@
          </section>
 
          <!--Last Page: Personal Projects-->
-         <section class="page" id="lastPage">
-            <div class="main-body">
-               <!--do a slide show here?-->
+         <section id="lastPage" class="page">
+            <div class="main-body container-fluid">
                <h2 class="lastPageTitle">Personal Projects</h2>
 
-               <div id="project" class="slide-show-container">
-                  <a id="project-back" class="back hide"><p>&#8592; Back</p></a>
+               <div id="project" class="row">
+                  <!-- <div class="col project-card"></div>
+                  <div class="col project-card"></div> -->
                   <!--Template by Handlebars to display projects-->
                   <div id="project-Template-Fill"></div>
-                  <a id="project-prev-button" class="prev non-visible"><h2>&#10094;</h2></a>
-                  <a id="project-next-button" class="next hide"><h2>&#10095;</h2></a>
-                  <div id="project-dot-container" class="dot-container center"></div>
                </div>
             </div>
          </section>
